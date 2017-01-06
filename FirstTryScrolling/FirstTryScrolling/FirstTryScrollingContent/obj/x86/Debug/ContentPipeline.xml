@@ -269,7 +269,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Joshua Programming\Documents\Visual Studio 2010\Projects\FirstTryScrolling\FirstTryScrolling\FirstTryScrolling\bin\x86\Debug\Content\DoorMsg3.xnb</Output>
-      <Time>2017-01-06T11:36:37.7972047-08:00</Time>
+      <Time>2017-01-06T14:01:47.4070547-08:00</Time>
     </Item>
     <Item>
       <Source>Soldier.png</Source>
@@ -279,6 +279,24 @@
       <Options>None</Options>
       <Output>C:\Users\Joshua Programming\Documents\Visual Studio 2010\Projects\FirstTryScrolling\FirstTryScrolling\FirstTryScrolling\bin\x86\Debug\Content\Soldier.xnb</Output>
       <Time>2017-01-06T11:52:55.4481193-08:00</Time>
+    </Item>
+    <Item>
+      <Source>gate.png</Source>
+      <Name>gate</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Joshua Programming\Documents\Visual Studio 2010\Projects\FirstTryScrolling\FirstTryScrolling\FirstTryScrolling\bin\x86\Debug\Content\gate.xnb</Output>
+      <Time>2017-01-06T13:34:21.6916414-08:00</Time>
+    </Item>
+    <Item>
+      <Source>GoRightSign.png</Source>
+      <Name>GoRightSign</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Joshua Programming\Documents\Visual Studio 2010\Projects\FirstTryScrolling\FirstTryScrolling\FirstTryScrolling\bin\x86\Debug\Content\GoRightSign.xnb</Output>
+      <Time>2017-01-06T14:02:10.6059945-08:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

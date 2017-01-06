@@ -22,10 +22,13 @@ namespace FirstTryScrolling
         KeyboardState lastks;
         SpriteFont font;
         Sprite mouse;
+        Sprite Gateforgifted;
         int movementAmount = 0;
         Texture2D HK;
         bool killslides = false;
         //BUNCH OF SPRITES HERE 
+
+        bool gateShow = false;
 
         Sprite Back1;
         Sprite Back2;
@@ -78,6 +81,9 @@ namespace FirstTryScrolling
 
         //sprite pits of LAVA
 
+        //sprite thingy
+        Sprite RightSign;
+
 
         //pepe Stuff  
 
@@ -85,7 +91,7 @@ namespace FirstTryScrolling
 
 
 
-
+        bool Trumpslides = false;
 
 
         Sprite JetPackPowerUp;
@@ -145,7 +151,7 @@ namespace FirstTryScrolling
             player = new Player(Content.Load<Texture2D>("BLOB"), new Vector2(350, 400), Color.White, potadoge);
             //sprite stuffs
             //MOUSEIMG
-            mouse = new Sprite(Content.Load<Texture2D>("Door"), new Vector2(0, 0), Color.White);
+            mouse = new Sprite(Content.Load<Texture2D>("GoRightSign"), new Vector2(16666, 290), Color.White);
 
 
             //doors and sutff
@@ -154,6 +160,8 @@ namespace FirstTryScrolling
             Doormsg2 = new Sprite(Content.Load<Texture2D>("elmo"), new Vector2(0, 0), Color.White);
             Doormsg3 = new Sprite(Content.Load<Texture2D>("DoorMsg3"), new Vector2(0, 0), Color.White);
             Texture2D backimage = Content.Load<Texture2D>("TRY2");
+
+            RightSign = new Sprite(Content.Load<Texture2D>("GoRightSign"), new Vector2(0, 0), Color.White);
 
 
             Door = new Sprite(Content.Load<Texture2D>("Door"), new Vector2(16450, 167), Color.White);
@@ -187,6 +195,10 @@ namespace FirstTryScrolling
             Signs.Add(sign2);
             Signs.Add(sign3);
             Signs.Add(Oldman1);
+
+
+            //gate :D
+            Gateforgifted = new Sprite(Content.Load<Texture2D>("gate"), new Vector2(17225, 335), Color.White);
 
             //SMSG sprites
 
@@ -339,8 +351,11 @@ namespace FirstTryScrolling
                 {
 
                     Doorslides3 = false;
+                    Trumpslides = true;
+                    killslides = true;
                     GameStopped = false;
-
+                    gateShow = true;
+                    Door._position.X -= 140000;
 
                 }
             }
@@ -368,17 +383,19 @@ namespace FirstTryScrolling
                 }
                 //Update123
                 //Trolls take damage from player
-
-
-                if (player.hitbox.Intersects(Door.hitbox))
+                if (Trumpslides == false)
                 {
-                    doorslides = true;
-                    GameStopped = true;
-                }
-                else
-                {
-                    GameStopped = false;
-                    doorslides = false;
+
+                    if (player.hitbox.Intersects(Door.hitbox))
+                    {
+                        doorslides = true;
+                        GameStopped = true;
+                    }
+                    else
+                    {
+                        GameStopped = false;
+                        doorslides = false;
+                    }
                 }
                 for (int f = 0; f < Trolls.Count; f++)
                 {
@@ -543,8 +560,11 @@ namespace FirstTryScrolling
 
 
 
+                //next thing
+                if (player.hitbox.Intersects(Gateforgifted.hitbox))
+                {
 
-
+                }
 
 
 
@@ -731,7 +751,7 @@ namespace FirstTryScrolling
                     if (ks.IsKeyDown(Keys.Right))
                     {
                         mouseX += 10;
-
+                        Gateforgifted._position.X -= 10;
                         player.effect = SpriteEffects.None;
                         player.Direction = Direction.Right;
                         //player.
@@ -817,7 +837,7 @@ namespace FirstTryScrolling
                             player.effect = SpriteEffects.FlipHorizontally;
                             player.Direction = Direction.Left;
                             movementAmount--;
-
+                            Gateforgifted._position.X += 10;
                             for (int i = 0; i < Pol.Count; i++)
                             {
                                 Pol[i]._position.X += 10;
@@ -995,9 +1015,12 @@ namespace FirstTryScrolling
             {
                 Doormsg3.Draw(spriteBatch);
             }
-
-
-
+            if (gateShow == true)
+            {
+              Gateforgifted.Draw(spriteBatch);
+              RightSign.Draw(spriteBatch);
+            }
+         
 
             if (GameStopped == true && player.lives == 0)
             {

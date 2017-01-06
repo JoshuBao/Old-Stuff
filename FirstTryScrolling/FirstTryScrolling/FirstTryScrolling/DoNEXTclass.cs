@@ -28,7 +28,7 @@ namespace FirstTryScrolling
         //
         //
         //
-        //
+        //after the gate do a gameshow thingy :D
         //
         //
         //

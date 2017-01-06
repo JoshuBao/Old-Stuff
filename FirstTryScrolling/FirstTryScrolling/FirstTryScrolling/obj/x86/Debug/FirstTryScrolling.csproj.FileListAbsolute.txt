@@ -35,3 +35,5 @@ C:\Users\Joshua Programming\Documents\Visual Studio 2010\Projects\FirstTryScroll
 C:\Users\Joshua Programming\Documents\Visual Studio 2010\Projects\FirstTryScrolling\FirstTryScrolling\FirstTryScrolling\bin\x86\Debug\Content\elmo.xnb
 C:\Users\Joshua Programming\Documents\Visual Studio 2010\Projects\FirstTryScrolling\FirstTryScrolling\FirstTryScrolling\bin\x86\Debug\Content\DoorMsg3.xnb
 C:\Users\Joshua Programming\Documents\Visual Studio 2010\Projects\FirstTryScrolling\FirstTryScrolling\FirstTryScrolling\bin\x86\Debug\Content\Soldier.xnb
+C:\Users\Joshua Programming\Documents\Visual Studio 2010\Projects\FirstTryScrolling\FirstTryScrolling\FirstTryScrolling\bin\x86\Debug\Content\gate.xnb
+C:\Users\Joshua Programming\Documents\Visual Studio 2010\Projects\FirstTryScrolling\FirstTryScrolling\FirstTryScrolling\bin\x86\Debug\Content\GoRightSign.xnb

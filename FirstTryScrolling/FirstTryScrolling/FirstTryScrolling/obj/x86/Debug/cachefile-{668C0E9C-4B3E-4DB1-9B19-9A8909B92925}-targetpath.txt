@@ -29,3 +29,5 @@ Content\DoorMsg1.xnb
 Content\elmo.xnb
 Content\DoorMsg3.xnb
 Content\Soldier.xnb
+Content\gate.xnb
+Content\GoRightSign.xnb
