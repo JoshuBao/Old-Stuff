@@ -1,0 +1,325 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
+  <Asset Type="Pipeline:BuildItemCollection">
+    <Item>
+      <Source>TRY#.png</Source>
+      <Name>TRY#</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Joshua Programming\Documents\Visual Studio 2010\Projects\FirstTryScrolling\FirstTryScrolling\FirstTryScrolling\bin\x86\Debug\Content\TRY#.xnb</Output>
+      <Time>2016-08-04T19:11:52.4350862-07:00</Time>
+    </Item>
+    <Item>
+      <Source>BLOB.png</Source>
+      <Name>BLOB</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Joshua Programming\Documents\Visual Studio 2010\Projects\FirstTryScrolling\FirstTryScrolling\FirstTryScrolling\bin\x86\Debug\Content\BLOB.xnb</Output>
+      <Time>2016-10-06T19:35:45.0295269-07:00</Time>
+    </Item>
+    <Item>
+      <Source>TRY2.png</Source>
+      <Name>TRY2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Joshua Programming\Documents\Visual Studio 2010\Projects\FirstTryScrolling\FirstTryScrolling\FirstTryScrolling\bin\x86\Debug\Content\TRY2.xnb</Output>
+      <Time>2016-08-04T19:12:04.2362254-07:00</Time>
+    </Item>
+    <Item>
+      <Source>MousePointerNEWANDBETTER.png</Source>
+      <Name>MousePointerNEWANDBETTER</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Joshua Programming\Documents\Visual Studio 2010\Projects\FirstTryScrolling\FirstTryScrolling\FirstTryScrolling\bin\x86\Debug\Content\MousePointerNEWANDBETTER.xnb</Output>
+      <Time>2016-06-30T21:04:01.2459615-07:00</Time>
+    </Item>
+    <Item>
+      <Source>block.png</Source>
+      <Name>block</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Joshua Programming\Documents\Visual Studio 2010\Projects\FirstTryScrolling\FirstTryScrolling\FirstTryScrolling\bin\x86\Debug\Content\block.xnb</Output>
+      <Time>2016-07-14T19:21:40.1459452-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Thing.png</Source>
+      <Name>Thing</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Joshua Programming\Documents\Visual Studio 2010\Projects\FirstTryScrolling\FirstTryScrolling\FirstTryScrolling\bin\x86\Debug\Content\Thing.xnb</Output>
+      <Time>2016-07-21T19:22:53.5615309-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Lightning.png</Source>
+      <Name>Lightning</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Joshua Programming\Documents\Visual Studio 2010\Projects\FirstTryScrolling\FirstTryScrolling\FirstTryScrolling\bin\x86\Debug\Content\Lightning.xnb</Output>
+      <Time>2016-08-04T19:30:35.5867376-07:00</Time>
+    </Item>
+    <Item>
+      <Source>WhitePic.jpg</Source>
+      <Name>WhitePic</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Joshua Programming\Documents\Visual Studio 2010\Projects\FirstTryScrolling\FirstTryScrolling\FirstTryScrolling\bin\x86\Debug\Content\WhitePic.xnb</Output>
+      <Time>2016-08-04T19:12:46.9900199-07:00</Time>
+    </Item>
+    <Item>
+      <Source>POL.png</Source>
+      <Name>POL</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Joshua Programming\Documents\Visual Studio 2010\Projects\FirstTryScrolling\FirstTryScrolling\FirstTryScrolling\bin\x86\Debug\Content\POL.xnb</Output>
+      <Time>2016-08-11T18:38:14.3339643-07:00</Time>
+    </Item>
+    <Item>
+      <Source>PolWIMG.png</Source>
+      <Name>PolWIMG</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Joshua Programming\Documents\Visual Studio 2010\Projects\FirstTryScrolling\FirstTryScrolling\FirstTryScrolling\bin\x86\Debug\Content\PolWIMG.xnb</Output>
+      <Time>2016-08-11T19:29:06.2326817-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Sign.png</Source>
+      <Name>Sign</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Joshua Programming\Documents\Visual Studio 2010\Projects\FirstTryScrolling\FirstTryScrolling\FirstTryScrolling\bin\x86\Debug\Content\Sign.xnb</Output>
+      <Time>2016-08-25T18:14:30.021442-07:00</Time>
+    </Item>
+    <Item>
+      <Source>smsg1.png</Source>
+      <Name>smsg1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Joshua Programming\Documents\Visual Studio 2010\Projects\FirstTryScrolling\FirstTryScrolling\FirstTryScrolling\bin\x86\Debug\Content\smsg1.xnb</Output>
+      <Time>2016-08-25T18:23:51.8526335-07:00</Time>
+    </Item>
+    <Item>
+      <Source>smsg2.png</Source>
+      <Name>smsg2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Joshua Programming\Documents\Visual Studio 2010\Projects\FirstTryScrolling\FirstTryScrolling\FirstTryScrolling\bin\x86\Debug\Content\smsg2.xnb</Output>
+      <Time>2016-08-25T19:20:43.7138045-07:00</Time>
+    </Item>
+    <Item>
+      <Source>smsg3.png</Source>
+      <Name>smsg3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Joshua Programming\Documents\Visual Studio 2010\Projects\FirstTryScrolling\FirstTryScrolling\FirstTryScrolling\bin\x86\Debug\Content\smsg3.xnb</Output>
+      <Time>2016-09-08T19:08:27.9352084-07:00</Time>
+    </Item>
+    <Item>
+      <Source>CheckPointFlag.png</Source>
+      <Name>CheckPointFlag</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Joshua Programming\Documents\Visual Studio 2010\Projects\FirstTryScrolling\FirstTryScrolling\FirstTryScrolling\bin\x86\Debug\Content\CheckPointFlag.xnb</Output>
+      <Time>2016-09-08T19:22:28.1682207-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Troll.png</Source>
+      <Name>Troll</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Joshua Programming\Documents\Visual Studio 2010\Projects\FirstTryScrolling\FirstTryScrolling\FirstTryScrolling\bin\x86\Debug\Content\Troll.xnb</Output>
+      <Time>2016-10-02T16:46:26.9935646-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Oldman1.png</Source>
+      <Name>Oldman1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Joshua Programming\Documents\Visual Studio 2010\Projects\FirstTryScrolling\FirstTryScrolling\FirstTryScrolling\bin\x86\Debug\Content\Oldman1.xnb</Output>
+      <Time>2016-09-15T19:18:31.5018051-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Oldmanmsg1.png</Source>
+      <Name>Oldmanmsg1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Joshua Programming\Documents\Visual Studio 2010\Projects\FirstTryScrolling\FirstTryScrolling\FirstTryScrolling\bin\x86\Debug\Content\Oldmanmsg1.xnb</Output>
+      <Time>2016-09-15T18:36:06.7062975-07:00</Time>
+    </Item>
+    <Item>
+      <Source>MOUSE.spritefont</Source>
+      <Name>MOUSE</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Joshua Programming\Documents\Visual Studio 2010\Projects\FirstTryScrolling\FirstTryScrolling\FirstTryScrolling\bin\x86\Debug\Content\MOUSE.xnb</Output>
+      <Time>2016-06-30T16:43:48.8157214-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Troll Bomb.png</Source>
+      <Name>Troll Bomb</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Joshua Programming\Documents\Visual Studio 2010\Projects\FirstTryScrolling\FirstTryScrolling\FirstTryScrolling\bin\x86\Debug\Content\Troll Bomb.xnb</Output>
+      <Time>2016-10-02T16:33:40.8514949-07:00</Time>
+    </Item>
+    <Item>
+      <Source>potadoge.png</Source>
+      <Name>potadoge</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Joshua Programming\Documents\Visual Studio 2010\Projects\FirstTryScrolling\FirstTryScrolling\FirstTryScrolling\bin\x86\Debug\Content\potadoge.xnb</Output>
+      <Time>2016-11-20T10:45:36.8155191-08:00</Time>
+    </Item>
+    <Item>
+      <Source>Jetpack Powerup.png</Source>
+      <Name>Jetpack Powerup</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Joshua Programming\Documents\Visual Studio 2010\Projects\FirstTryScrolling\FirstTryScrolling\FirstTryScrolling\bin\x86\Debug\Content\Jetpack Powerup.xnb</Output>
+      <Time>2016-10-06T19:23:13.4125987-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Game Over Screen.png</Source>
+      <Name>Game Over Screen</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Joshua Programming\Documents\Visual Studio 2010\Projects\FirstTryScrolling\FirstTryScrolling\FirstTryScrolling\bin\x86\Debug\Content\Game Over Screen.xnb</Output>
+      <Time>2016-11-06T10:30:43.3088367-08:00</Time>
+    </Item>
+    <Item>
+      <Source>pepeFOR REALS.png</Source>
+      <Name>pepeFOR REALS</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Joshua Programming\Documents\Visual Studio 2010\Projects\FirstTryScrolling\FirstTryScrolling\FirstTryScrolling\bin\x86\Debug\Content\pepeFOR REALS.xnb</Output>
+      <Time>2016-11-06T14:00:28.5002941-08:00</Time>
+    </Item>
+    <Item>
+      <Source>TEARBULLET.png</Source>
+      <Name>TEARBULLET</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Joshua Programming\Documents\Visual Studio 2010\Projects\FirstTryScrolling\FirstTryScrolling\FirstTryScrolling\bin\x86\Debug\Content\TEARBULLET.xnb</Output>
+      <Time>2016-11-06T13:44:22.6455009-08:00</Time>
+    </Item>
+    <Item>
+      <Source>HEALTH kit.png</Source>
+      <Name>HEALTH kit</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Joshua Programming\Documents\Visual Studio 2010\Projects\FirstTryScrolling\FirstTryScrolling\FirstTryScrolling\bin\x86\Debug\Content\HEALTH kit.xnb</Output>
+      <Time>2016-12-01T16:50:55.0526493-08:00</Time>
+    </Item>
+    <Item>
+      <Source>Door.png</Source>
+      <Name>Door</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Joshua Programming\Documents\Visual Studio 2010\Projects\FirstTryScrolling\FirstTryScrolling\FirstTryScrolling\bin\x86\Debug\Content\Door.xnb</Output>
+      <Time>2016-12-08T18:43:38.6676569-08:00</Time>
+    </Item>
+    <Item>
+      <Source>DoorMsg1.png</Source>
+      <Name>DoorMsg1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Joshua Programming\Documents\Visual Studio 2010\Projects\FirstTryScrolling\FirstTryScrolling\FirstTryScrolling\bin\x86\Debug\Content\DoorMsg1.xnb</Output>
+      <Time>2016-12-15T16:12:40.6081934-08:00</Time>
+    </Item>
+    <Item>
+      <Source>elmo.jpg</Source>
+      <Name>elmo</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Joshua Programming\Documents\Visual Studio 2010\Projects\FirstTryScrolling\FirstTryScrolling\FirstTryScrolling\bin\x86\Debug\Content\elmo.xnb</Output>
+      <Time>2016-12-15T16:44:03.2662332-08:00</Time>
+    </Item>
+    <Item>
+      <Source>DoorMsg3.png</Source>
+      <Name>DoorMsg3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Joshua Programming\Documents\Visual Studio 2010\Projects\FirstTryScrolling\FirstTryScrolling\FirstTryScrolling\bin\x86\Debug\Content\DoorMsg3.xnb</Output>
+      <Time>2017-01-06T11:36:37.7972047-08:00</Time>
+    </Item>
+    <Item>
+      <Source>Soldier.png</Source>
+      <Name>Soldier</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Joshua Programming\Documents\Visual Studio 2010\Projects\FirstTryScrolling\FirstTryScrolling\FirstTryScrolling\bin\x86\Debug\Content\Soldier.xnb</Output>
+      <Time>2017-01-06T11:52:55.4481193-08:00</Time>
+    </Item>
+    <BuildSuccessful>true</BuildSuccessful>
+    <Settings>
+      <TargetPlatform>Windows</TargetPlatform>
+      <TargetProfile>HiDef</TargetProfile>
+      <BuildConfiguration>Debug</BuildConfiguration>
+      <CompressContent>false</CompressContent>
+      <RootDirectory>C:\Users\Joshua Programming\Documents\Visual Studio 2010\Projects\FirstTryScrolling\FirstTryScrolling\FirstTryScrollingContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Joshua Programming\Documents\Visual Studio 2010\Projects\FirstTryScrolling\FirstTryScrolling\FirstTryScrolling\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Joshua Programming\Documents\Visual Studio 2010\Projects\FirstTryScrolling\FirstTryScrolling\FirstTryScrollingContent\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Joshua Programming\Documents\Visual Studio 2010\Projects\FirstTryScrolling\FirstTryScrolling\FirstTryScrolling\bin\x86\Debug\Content\</OutputDirectory>
+    </Settings>
+    <Assemblies>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2010-08-23T09:41:18-07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
+        <Value>2010-08-23T09:41:18-07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2010-08-23T09:41:18-07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2010-08-23T09:41:18-07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2010-08-23T09:41:18-07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2010-08-23T09:41:18-07:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\WINDOWS\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2016-10-02T03:22:45.8297888-07:00</Value>
+      </Assembly>
+    </Assemblies>
+  </Asset>
+</XnaContent>
