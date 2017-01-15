@@ -46,9 +46,27 @@ namespace FirstTryScrolling
         Sprite Doormsg3;
         bool Doorslides3 = false;
         bool Doorslides2 = false;
-        
 
+        //LOCK PICKING SPRITES
+        Sprite Recieve1;
+        Sprite Recieve2;
+        Sprite Recieve3;
+        Sprite Recieve4;
 
+        Sprite LockPickScreen; 
+
+        Sprite Block1;
+        Sprite Block2;
+        Sprite Block3;
+        Sprite Block4;
+        Sprite Block5;
+        //LOCK PICKING bools
+        bool HowtoLockPick = false;
+        bool LockPickStart = false;
+        bool Rhit1 = false;
+        bool Rhit2 = false;
+        bool Rhit3 = false;
+        bool Rhit4 = false;
         List<Sprite> HealthKit;
 
         Sprite Door;
@@ -151,8 +169,21 @@ namespace FirstTryScrolling
             player = new Player(Content.Load<Texture2D>("BLOB"), new Vector2(350, 400), Color.White, potadoge);
             //sprite stuffs
             //MOUSEIMG
-            mouse = new Sprite(Content.Load<Texture2D>("GoRightSign"), new Vector2(16666, 290), Color.White);
+            mouse = new Sprite(Content.Load<Texture2D>("GreenBlock"), new Vector2(16666, 290), Color.White);
 
+
+            //LOCKPICK
+
+            LockPickScreen = new Sprite(Content.Load<Texture2D>("LockPickScreen"), new Vector2(0, 0), Color.White);
+            Recieve1 = new Sprite(Content.Load<Texture2D>("Recieve1"),new Vector2 (210,105),Color.White);
+            Recieve2 = new Sprite(Content.Load<Texture2D>("Recieve1"),new Vector2 (334,603),Color.White);
+            Recieve3 = new Sprite(Content.Load<Texture2D>("Recieve1"),new Vector2 (466,104),Color.White);
+            Recieve4 = new Sprite(Content.Load<Texture2D>("Recieve1"),new Vector2 (584,600),Color.White);
+
+            Block1 = new Sprite(Content.Load<Texture2D>("GreenBlock"), new Vector2(205, 217), Color.White);
+            Block2 = new Sprite(Content.Load<Texture2D>("RedBlock"), new Vector2(310, 268), Color.White);
+            Block3 = new Sprite(Content.Load<Texture2D>("YellowBlock"), new Vector2(409,213), Color.White);
+            Block4 = new Sprite(Content.Load<Texture2D>("OrangeBlock"), new Vector2(569, 239), Color.White);
 
             //doors and sutff
             Doormsg = new Sprite(Content.Load<Texture2D>("DoorMsg1"), new Vector2(0, 0), Color.White);
@@ -161,7 +192,7 @@ namespace FirstTryScrolling
             Doormsg3 = new Sprite(Content.Load<Texture2D>("DoorMsg3"), new Vector2(0, 0), Color.White);
             Texture2D backimage = Content.Load<Texture2D>("TRY2");
 
-            RightSign = new Sprite(Content.Load<Texture2D>("GoRightSign"), new Vector2(0, 0), Color.White);
+            RightSign = new Sprite(Content.Load<Texture2D>("GoRightSign"), new Vector2(16666, 290), Color.White);
 
 
             Door = new Sprite(Content.Load<Texture2D>("Door"), new Vector2(16450, 167), Color.White);
@@ -359,11 +390,51 @@ namespace FirstTryScrolling
 
                 }
             }
+
+            //LOCKPICKKKKKKKK
+            if (player.hitbox.Intersects(Gateforgifted.hitbox))
+            {
+                GameStopped = true;
+                HowtoLockPick = true;
+            }
+            if (HowtoLockPick == true && ks.IsKeyDown(Keys.C))
+            {
+                LockPickStart = true;
+            }
+            if (Rhit1 == false)
+            {
+                if (LockPickStart == true && ks.IsKeyDown(Keys.Up))
+                {
+
+                    Block1._position.Y -= 10;
+                }
+                if (Rhit1 == false && ks.IsKeyDown(Keys.Down))
+                {
+                    Block1._position.Y += 10;
+                }
+            }
+            if (Block1.hitbox.Intersects(Recieve1.hitbox))
+            {
+                Rhit1 = true;
+            }
+            if (Block2.hitbox.Intersects(Recieve2.hitbox))
+            {
+                Rhit2 = true;
+            }
+            if (Block3.hitbox.Intersects(Recieve3.hitbox))
+            {
+                Rhit3 = true;
+            }
+            if (Block4.hitbox.Intersects(Recieve4.hitbox))
+            {
+                Rhit4 = true;
+            }
+
             if (ks.IsKeyDown(Keys.H))
             {
-                Door._position = new Vector2(player._position.X, player._position.Y - 200);
-                Door.hitbox.X = (int)Door._position.X;
-                Door.hitbox.Y = (int)Door._position.Y;
+                Gateforgifted._position = new Vector2(player._position.X, player._position.Y - 200);
+                Gateforgifted.hitbox.X = (int)Door._position.X;
+                Gateforgifted.hitbox.Y = (int)Door._position.Y;
             }
 
             //if (ks.IsKeyDown(Keys.C) && lastks.IsKeyUp(Keys.C) && Doorslides2 == true)
@@ -754,6 +825,7 @@ namespace FirstTryScrolling
                         Gateforgifted._position.X -= 10;
                         player.effect = SpriteEffects.None;
                         player.Direction = Direction.Right;
+                        RightSign._position.X -= 10;
                         //player.
 
                         movementAmount++;
@@ -838,6 +910,7 @@ namespace FirstTryScrolling
                             player.Direction = Direction.Left;
                             movementAmount--;
                             Gateforgifted._position.X += 10;
+                            RightSign._position.X += 10;
                             for (int i = 0; i < Pol.Count; i++)
                             {
                                 Pol[i]._position.X += 10;
@@ -906,7 +979,7 @@ namespace FirstTryScrolling
             spriteBatch.Begin();
 
             GraphicsDevice.Clear(Color.White);
-            spriteBatch.DrawString(font, "X:" + (ms.X + mouseX) + "Y:" + ms.Y, new Vector2(0, 0), Color.Black);
+            
             //spriteBatch.DrawString(Content.Load<SpriteFont>("MOUSE"), player.jumpCount.ToString(), Vector2.Zero, Color.Black);
             //spriteBatch.DrawString(Content.Load<SpriteFont>("MOUSE"), "X:" + ms.X.ToString() + "Y:" + ms.Y.ToString(),new Vector2(0,0),Color.Black);
 
@@ -1017,10 +1090,25 @@ namespace FirstTryScrolling
             }
             if (gateShow == true)
             {
-              Gateforgifted.Draw(spriteBatch);
-              RightSign.Draw(spriteBatch);
+                Gateforgifted.Draw(spriteBatch);
+                RightSign.Draw(spriteBatch);
             }
-         
+            if (HowtoLockPick == true)
+            {
+
+            }
+            LockPickScreen.Draw(spriteBatch);
+            Block1.Draw(spriteBatch);
+            Block2.Draw(spriteBatch);
+            Block3.Draw(spriteBatch);
+            Block4.Draw(spriteBatch);
+            if (LockPickStart == true)
+            {
+
+            }
+            mouse.Draw(spriteBatch);
+
+            spriteBatch.DrawString(font, "X:" + (ms.X + mouseX) + "Y:" + ms.Y, new Vector2(0, 0), Color.Black);
 
             if (GameStopped == true && player.lives == 0)
             {

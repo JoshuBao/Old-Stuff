@@ -122,7 +122,6 @@
   <ItemGroup>
     <Content Include="Game.ico" />
     <Content Include="GameThumbnail.png" />
-    <Content Include="GoRightSign.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FirstTryScrollingContent\FirstTryScrollingContent.contentproj">

@@ -298,6 +298,60 @@
       <Output>C:\Users\Joshua Programming\Documents\John-Cena\FirstTryScrolling\FirstTryScrolling\FirstTryScrolling\bin\x86\Debug\Content\MOUSE.xnb</Output>
       <Time>2016-06-30T16:43:48.8157214-07:00</Time>
     </Item>
+    <Item>
+      <Source>LockPickScreen.png</Source>
+      <Name>LockPickScreen</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Joshua Programming\Documents\John-Cena\FirstTryScrolling\FirstTryScrolling\FirstTryScrolling\bin\x86\Debug\Content\LockPickScreen.xnb</Output>
+      <Time>2017-01-15T10:02:39.2575336-08:00</Time>
+    </Item>
+    <Item>
+      <Source>GreenBlock.png</Source>
+      <Name>GreenBlock</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Joshua Programming\Documents\John-Cena\FirstTryScrolling\FirstTryScrolling\FirstTryScrolling\bin\x86\Debug\Content\GreenBlock.xnb</Output>
+      <Time>2017-01-15T10:02:34.6184037-08:00</Time>
+    </Item>
+    <Item>
+      <Source>OrangeBlock.png</Source>
+      <Name>OrangeBlock</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Joshua Programming\Documents\John-Cena\FirstTryScrolling\FirstTryScrolling\FirstTryScrolling\bin\x86\Debug\Content\OrangeBlock.xnb</Output>
+      <Time>2017-01-15T10:02:41.0943181-08:00</Time>
+    </Item>
+    <Item>
+      <Source>Recieve1.png</Source>
+      <Name>Recieve1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Joshua Programming\Documents\John-Cena\FirstTryScrolling\FirstTryScrolling\FirstTryScrolling\bin\x86\Debug\Content\Recieve1.xnb</Output>
+      <Time>2017-01-15T10:02:45.5686386-08:00</Time>
+    </Item>
+    <Item>
+      <Source>RedBlock.png</Source>
+      <Name>RedBlock</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Joshua Programming\Documents\John-Cena\FirstTryScrolling\FirstTryScrolling\FirstTryScrolling\bin\x86\Debug\Content\RedBlock.xnb</Output>
+      <Time>2017-01-15T10:02:47.7579024-08:00</Time>
+    </Item>
+    <Item>
+      <Source>YellowBlock.png</Source>
+      <Name>YellowBlock</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Joshua Programming\Documents\John-Cena\FirstTryScrolling\FirstTryScrolling\FirstTryScrolling\bin\x86\Debug\Content\YellowBlock.xnb</Output>
+      <Time>2017-01-15T10:02:50.9424427-08:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
