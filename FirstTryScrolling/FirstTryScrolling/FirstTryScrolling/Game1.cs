@@ -23,6 +23,7 @@ namespace FirstTryScrolling
         SpriteFont font;
         Sprite mouse;
         Sprite Gateforgifted;
+        Sprite preLockMsg;
         int movementAmount = 0;
         Texture2D HK;
         bool killslides = false;
@@ -52,7 +53,8 @@ namespace FirstTryScrolling
         Sprite Recieve2;
         Sprite Recieve3;
         Sprite Recieve4;
-
+        Sprite Recieve5;
+        Sprite Recieve6;
         Sprite LockPickScreen; 
 
         Sprite Block1;
@@ -60,6 +62,8 @@ namespace FirstTryScrolling
         Sprite Block3;
         Sprite Block4;
         Sprite Block5;
+
+        Sprite bp;
         //LOCK PICKING bools
         bool HowtoLockPick = false;
         bool LockPickStart = false;
@@ -67,6 +71,8 @@ namespace FirstTryScrolling
         bool Rhit2 = false;
         bool Rhit3 = false;
         bool Rhit4 = false;
+        bool Rhit5 = false;
+        bool GZm8 = false;
         List<Sprite> HealthKit;
 
         Sprite Door;
@@ -169,7 +175,7 @@ namespace FirstTryScrolling
             player = new Player(Content.Load<Texture2D>("BLOB"), new Vector2(350, 400), Color.White, potadoge);
             //sprite stuffs
             //MOUSEIMG
-            mouse = new Sprite(Content.Load<Texture2D>("GreenBlock"), new Vector2(16666, 290), Color.White);
+            mouse = new Sprite(Content.Load<Texture2D>("bp"), new Vector2(16666, 290), Color.White);
 
 
             //LOCKPICK
@@ -179,12 +185,16 @@ namespace FirstTryScrolling
             Recieve2 = new Sprite(Content.Load<Texture2D>("Recieve1"),new Vector2 (334,603),Color.White);
             Recieve3 = new Sprite(Content.Load<Texture2D>("Recieve1"),new Vector2 (466,104),Color.White);
             Recieve4 = new Sprite(Content.Load<Texture2D>("Recieve1"),new Vector2 (584,600),Color.White);
+            Recieve5 = new Sprite(Content.Load<Texture2D>("Recieve1"), new Vector2(590,103), Color.White);
+            Recieve6 = new Sprite(Content.Load<Texture2D>("Recieve2"), new Vector2(200,301), Color.White);
+
 
             Block1 = new Sprite(Content.Load<Texture2D>("GreenBlock"), new Vector2(205, 217), Color.White);
-            Block2 = new Sprite(Content.Load<Texture2D>("RedBlock"), new Vector2(310, 268), Color.White);
-            Block3 = new Sprite(Content.Load<Texture2D>("YellowBlock"), new Vector2(409,213), Color.White);
-            Block4 = new Sprite(Content.Load<Texture2D>("OrangeBlock"), new Vector2(569, 239), Color.White);
-
+            Block2 = new Sprite(Content.Load<Texture2D>("RedBlock"), new Vector2(304, 270), Color.White);
+            Block3 = new Sprite(Content.Load<Texture2D>("YellowBlock"), new Vector2(403,212), Color.White);
+            Block4 = new Sprite(Content.Load<Texture2D>("OrangeBlock"), new Vector2(502, 238), Color.White);
+            Block5 = new Sprite(Content.Load<Texture2D>("BlueBlock"), new Vector2(597,280), Color.White);
+            bp = new Sprite(Content.Load<Texture2D>("bp"), new Vector2(828,323), Color.White);
             //doors and sutff
             Doormsg = new Sprite(Content.Load<Texture2D>("DoorMsg1"), new Vector2(0, 0), Color.White);
 
@@ -230,7 +240,7 @@ namespace FirstTryScrolling
 
             //gate :D
             Gateforgifted = new Sprite(Content.Load<Texture2D>("gate"), new Vector2(17225, 335), Color.White);
-
+            preLockMsg = new Sprite(Content.Load<Texture2D>("prelockbookmsg"), new Vector2(0, 0), Color.White);
             //SMSG sprites
 
             Smsg = new Sprite(Content.Load<Texture2D>("smsg1"), new Vector2(0, 0), Color.White);
@@ -390,46 +400,118 @@ namespace FirstTryScrolling
 
                 }
             }
-
+            Gateforgifted.Update();
             //LOCKPICKKKKKKKK
             if (player.hitbox.Intersects(Gateforgifted.hitbox))
             {
                 GameStopped = true;
                 HowtoLockPick = true;
             }
+
             if (HowtoLockPick == true && ks.IsKeyDown(Keys.C))
             {
                 LockPickStart = true;
             }
-            if (Rhit1 == false)
+            if (LockPickStart == true)
             {
-                if (LockPickStart == true && ks.IsKeyDown(Keys.Up))
+                if (Rhit1 == false)
                 {
-
-                    Block1._position.Y -= 10;
+                    if (Rhit1 == false && ks.IsKeyDown(Keys.Up))
+                    {
+                        Block1._position.Y -= 10;
+                    }
+                    if (Rhit1 == false && ks.IsKeyDown(Keys.Down))
+                    {
+                        Block1._position.Y += 10;
+                    }
                 }
-                if (Rhit1 == false && ks.IsKeyDown(Keys.Down))
+                else if (Rhit1 == true && Rhit2 == false)
                 {
-                    Block1._position.Y += 10;
+                    if (ks.IsKeyDown(Keys.Up))
+                    {
+                        Block2._position.Y -= 10;
+                    }
+                    if (ks.IsKeyDown(Keys.Down))
+                    {
+                        Block2._position.Y += 10;
+                    }
+                }
+                else if (Rhit2 == true && Rhit3 == false)
+                {
+                    if (ks.IsKeyDown(Keys.Up))
+                    {
+                        Block3._position.Y -= 10;
+                    }
+                    if (ks.IsKeyDown(Keys.Down))
+                    {
+                        Block3._position.Y += 10;
+                    }
+                }
+                else if (Rhit3 == true && Rhit4 == false)
+                {
+                    if (ks.IsKeyDown(Keys.Up))
+                    {
+                        Block4._position.Y -= 10;
+                    }
+                    if (ks.IsKeyDown(Keys.Down))
+                    {
+                        Block4._position.Y += 10;
+                    }
+                }
+                else if (Rhit4 == true && Rhit5 == false)
+                {
+                    if (ks.IsKeyDown(Keys.Up))
+                    {
+                        Block5._position.Y -= 10;
+                    }
+                    if (ks.IsKeyDown(Keys.Down))
+                    {
+                        Block5._position.Y += 10;
+                    }
+
+                }
+                else if (Rhit5 == true && GZm8 == false)
+                {
+                    if (ks.IsKeyDown(Keys.Left))
+                    {
+                        bp._position.X -= 10;
+                    }
+                    if (ks.IsKeyDown(Keys.Right))
+                    {
+                        bp._position.X += 10;
+                    }
+                }
+                Block1.Update();
+                Block2.Update();
+                Block3.Update();
+                Block4.Update();
+                Block5.Update();
+                bp.Update();
+                if (Block1.hitbox.Intersects(Recieve1.hitbox))
+                {
+                    Rhit1 = true;
+                }
+                if (Block2.hitbox.Intersects(Recieve2.hitbox))
+                {
+                    Rhit2 = true;
+                }
+                if (Block3.hitbox.Intersects(Recieve3.hitbox))
+                {
+                    Rhit3 = true;
+                }
+                if (Block4.hitbox.Intersects(Recieve4.hitbox))
+                {
+                    Rhit4 = true;
+                }
+                if (Block5.hitbox.Intersects(Recieve5.hitbox))
+                {
+                    Rhit5 = true;
+                }
+                if (bp.hitbox.Intersects(Recieve6.hitbox))
+                {
+                    GZm8 = true;
                 }
             }
-            if (Block1.hitbox.Intersects(Recieve1.hitbox))
-            {
-                Rhit1 = true;
-            }
-            if (Block2.hitbox.Intersects(Recieve2.hitbox))
-            {
-                Rhit2 = true;
-            }
-            if (Block3.hitbox.Intersects(Recieve3.hitbox))
-            {
-                Rhit3 = true;
-            }
-            if (Block4.hitbox.Intersects(Recieve4.hitbox))
-            {
-                Rhit4 = true;
-            }
-
             if (ks.IsKeyDown(Keys.H))
             {
                 Gateforgifted._position = new Vector2(player._position.X, player._position.Y - 200);
@@ -1092,19 +1174,26 @@ namespace FirstTryScrolling
             {
                 Gateforgifted.Draw(spriteBatch);
                 RightSign.Draw(spriteBatch);
-            }
+            }           
             if (HowtoLockPick == true)
             {
-
-            }
-            LockPickScreen.Draw(spriteBatch);
-            Block1.Draw(spriteBatch);
-            Block2.Draw(spriteBatch);
-            Block3.Draw(spriteBatch);
-            Block4.Draw(spriteBatch);
+                preLockMsg.Draw(spriteBatch);
+            }                   
             if (LockPickStart == true)
             {
-
+                Recieve1.Draw(spriteBatch);
+                Recieve2.Draw(spriteBatch);
+                Recieve3.Draw(spriteBatch);
+                Recieve4.Draw(spriteBatch);
+                Recieve5.Draw(spriteBatch);
+                Recieve6.Draw(spriteBatch);
+                LockPickScreen.Draw(spriteBatch);
+                Block1.Draw(spriteBatch);
+                Block2.Draw(spriteBatch);
+                Block3.Draw(spriteBatch);
+                Block4.Draw(spriteBatch);
+                Block5.Draw(spriteBatch);
+                bp.Draw(spriteBatch);
             }
             mouse.Draw(spriteBatch);
 

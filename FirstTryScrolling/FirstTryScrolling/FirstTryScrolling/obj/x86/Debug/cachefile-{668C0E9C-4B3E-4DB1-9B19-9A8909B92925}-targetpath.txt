@@ -37,3 +37,7 @@ Content\OrangeBlock.xnb
 Content\Recieve1.xnb
 Content\RedBlock.xnb
 Content\YellowBlock.xnb
+Content\BlueBlock.xnb
+Content\bp.xnb
+Content\Recieve2.xnb
+Content\prelockbookmsg.xnb
