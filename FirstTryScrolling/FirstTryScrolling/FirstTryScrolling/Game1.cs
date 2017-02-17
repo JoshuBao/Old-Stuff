@@ -40,6 +40,11 @@ namespace FirstTryScrolling
         Sprite Back7;
         Sprite Back8;
 
+        bool LOLiggy = true;
+        //sprite :> fight me irl and ill kill u :) :D :D :D: D:D :D::D:D :D:D:: :D::D:D;
+
+        Sprite GREYB;
+
         //doorrs
 
         Sprite Doormsg;
@@ -175,8 +180,9 @@ namespace FirstTryScrolling
             player = new Player(Content.Load<Texture2D>("BLOB"), new Vector2(350, 400), Color.White, potadoge);
             //sprite stuffs
             //MOUSEIMG
-            mouse = new Sprite(Content.Load<Texture2D>("bp"), new Vector2(16666, 290), Color.White);
-
+            mouse = new Sprite(Content.Load<Texture2D>("NOTACULT"), new Vector2(16666, 290), Color.White);
+            //GREBY and mashed potatoes
+            GREYB = new Sprite(Content.Load<Texture2D>("NOTACULT"), new Vector2(17732,18), Color.White);
 
             //LOCKPICK
 
@@ -239,7 +245,7 @@ namespace FirstTryScrolling
 
 
             //gate :D
-            Gateforgifted = new Sprite(Content.Load<Texture2D>("gate"), new Vector2(17225, 335), Color.White);
+            Gateforgifted = new Sprite(Content.Load<Texture2D>("gate"), new Vector2(17225, 340), Color.White);
             preLockMsg = new Sprite(Content.Load<Texture2D>("prelockbookmsg"), new Vector2(0, 0), Color.White);
             //SMSG sprites
 
@@ -512,6 +518,12 @@ namespace FirstTryScrolling
                     GZm8 = true;
                 }
             }
+            if (GZm8 == true)
+            {
+                LockPickStart = false;
+                HowtoLockPick = false;
+                GameStopped = false;
+            }
             if (ks.IsKeyDown(Keys.H))
             {
                 Gateforgifted._position = new Vector2(player._position.X, player._position.Y - 200);
@@ -711,12 +723,16 @@ namespace FirstTryScrolling
                     }
                 }
 
+                //idk tbh :> :> :> >:  >: >: >: >: > :>: :  :> : >: > >: > >: >:> >: >: : >: >: >:>:>:>;L: :l ;l ;l ;l ;l ;:L :l :l
+                if (player.hitbox.Intersects(GREYB.hitbox))
+                {
+                    GameStopped = true;
 
-
+                }
                 //next thing
                 if (player.hitbox.Intersects(Gateforgifted.hitbox))
                 {
-
+                    
                 }
 
 
@@ -909,7 +925,7 @@ namespace FirstTryScrolling
                         player.Direction = Direction.Right;
                         RightSign._position.X -= 10;
                         //player.
-
+                        GREYB._position.X -= 10;
                         movementAmount++;
                         for (int i = 0; i < Pol.Count; i++)
                         {
@@ -991,6 +1007,7 @@ namespace FirstTryScrolling
                             player.effect = SpriteEffects.FlipHorizontally;
                             player.Direction = Direction.Left;
                             movementAmount--;
+                            GREYB._position.X += 10;
                             Gateforgifted._position.X += 10;
                             RightSign._position.X += 10;
                             for (int i = 0; i < Pol.Count; i++)
@@ -1195,6 +1212,11 @@ namespace FirstTryScrolling
                 Block5.Draw(spriteBatch);
                 bp.Draw(spriteBatch);
             }
+            if (LOLiggy == true)
+            {
+                GREYB.Draw(spriteBatch);
+            }
+            
             mouse.Draw(spriteBatch);
 
             spriteBatch.DrawString(font, "X:" + (ms.X + mouseX) + "Y:" + ms.Y, new Vector2(0, 0), Color.Black);
