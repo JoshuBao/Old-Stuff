@@ -1,0 +1,160 @@
+block1
+X:484
+Y:403
+block2
+X:826
+Y:276
+block3
+X:
+Y:
+block4
+X:
+Y:
+block5
+X:
+Y:
+block6
+X:7:15 PM 11/10/2016
+Y:
+block7
+X:
+Y:
+block8
+X:
+Y:
+block9
+X:
+Y:
+BLOCK 21
+X:13239
+Y:312
+BLOCK 22
+X:13288
+Y:449
+BLOCK 23
+X:13478
+Y:411
+BLocks24
+X:
+Y:
+B25
+X:
+Y
+26
+X:
+Y:
+27
+X:
+Y:
+28
+X
+Y:
+CULT STEFF
+X:17732
+Y:58
+Blocks sterrf and what nert
+X:15918
+Y:339
+PEPE COORDS
+pepe 1
+X:12385
+Y:97
+pepe 2
+X:12571
+Y:355
+pepe 3
+X:12855
+Y:249
+pepe 4
+X:13122
+Y:309
+pepe 5
+X:13180
+Y:335
+PEPE TESTER
+X:13323
+Y:259
+P@
+X:13608
+Y:199
+X:14015
+Y:258
+X:14513
+Y:131
+
+X:15012
+Y:47
+X:15413
+Y:247
+X:
+Y:
+X:
+Y:
+X:
+Y:
+X:
+Y:
+X:
+Y:
+X:
+Y:
+X:
+Y:
+HEALTH KIT
+X:11115
+Y:172
+X:16075
+Y:310
+
+Door coords:
+X:16775
+Y:167
+
+gate coords:
+X:17225
+Y:335
+
+gate signs:
+X:16666
+Y:290
+
+Recieve1
+X:210
+Y:105
+R2
+X:334
+Y:603
+R3
+X:466
+Y:104
+R4
+X:584
+Y:599
+R5
+X:590
+Y:103
+R6
+X:200
+Y:301
+Block1
+X:205
+Y:217
+Block2
+X:304
+Y:270
+Block3
+X:403
+Y:212
+Block4
+X:502
+Y:238
+Block5
+X:597
+Y:280
+B pin
+X:828
+Y:323
+
+
+
+

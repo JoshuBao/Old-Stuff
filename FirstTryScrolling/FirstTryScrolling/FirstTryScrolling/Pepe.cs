@@ -21,7 +21,7 @@ namespace FirstTryScrolling
         TimeSpan _activeTimer;
         TimeSpan _damageTimer;
         public bool hit = false;
-        public Direction Direction;
+        public Direction direction;
         
         public Pepe(Texture2D image, Vector2 position, Color color, Bullet bullet)
         {
@@ -46,7 +46,7 @@ namespace FirstTryScrolling
             {
                 _delayControl = TimeSpan.Zero;
                 Vector2 bulletSpawn = new Vector2( _position.X + (_image.Width - _bullet._image.Width) / 2, _position.Y);
-                Bullets.Add(new Bullet(_bullet._image, bulletSpawn, _bullet._color, _bullet._speed, Direction));
+                Bullets.Add(new Bullet(_bullet._image, bulletSpawn, _bullet._color, _bullet._speed, direction));
                 //where we shoot a bullet
             }
             foreach (Bullet bullet in Bullets)

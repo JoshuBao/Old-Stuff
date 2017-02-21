@@ -31,6 +31,8 @@ namespace FirstTryScrolling
 
         bool gateShow = false;
 
+        Sprite backblack;
+
         Sprite Back1;
         Sprite Back2;
         Sprite Back3;
@@ -60,7 +62,7 @@ namespace FirstTryScrolling
         Sprite Recieve4;
         Sprite Recieve5;
         Sprite Recieve6;
-        Sprite LockPickScreen; 
+        Sprite LockPickScreen;
 
         Sprite Block1;
         Sprite Block2;
@@ -104,6 +106,9 @@ namespace FirstTryScrolling
         bool Showmsg2 = false;
         bool Showsmsg3 = false;
 
+
+
+
         Texture2D WpolImg;
         Lightning lightning;
         Lightning Whitepic;
@@ -113,12 +118,13 @@ namespace FirstTryScrolling
         //sprite thingy
         Sprite RightSign;
 
+      
 
         //pepe Stuff  
 
         List<Pepe> pepe;
 
-
+        bool CastlebitStart = false;
 
         bool Trumpslides = false;
 
@@ -132,12 +138,15 @@ namespace FirstTryScrolling
 
         bool GameStopped = false;
 
+        Texture2D greyimg;
+
         List<Bullet> Bullet;
         Sprite Smsg;
         Sprite Smsg1;
         Sprite Smsg2;
         Sprite Smsg3;
         Sprite Oldman1;
+       
         //flag stuff very cool and important
         List<Sprite> Flags;
         Sprite Flag1;
@@ -146,6 +155,8 @@ namespace FirstTryScrolling
         bool RIGHT = false;
         bool LEFT = true;
         public static Texture2D pixel;
+        //mega boss :>
+        MegaBoss rrp;
 
         TimeSpan damageTimer = new TimeSpan(0, 0, 0, 0, 100);
 
@@ -180,27 +191,36 @@ namespace FirstTryScrolling
             player = new Player(Content.Load<Texture2D>("BLOB"), new Vector2(350, 400), Color.White, potadoge);
             //sprite stuffs
             //MOUSEIMG
-            mouse = new Sprite(Content.Load<Texture2D>("NOTACULT"), new Vector2(16666, 290), Color.White);
+            mouse = new Sprite(Content.Load<Texture2D>("Megaboss"), new Vector2(16666, 290), Color.White);
             //GREBY and mashed potatoes
-            GREYB = new Sprite(Content.Load<Texture2D>("NOTACULT"), new Vector2(17732,18), Color.White);
+            GREYB = new Sprite(Content.Load<Texture2D>("NOTACULT"), new Vector2(17732, 18), Color.White);
+
+            //mer fire :>
+            Bullet DerFire = new Bullet(Content.Load<Texture2D>("daFire"),new Vector2(-10,-10),Color.White,new Vector2(20,20), Direction.Right);
+            //first boss eva fam 4.1savage
+            rrp = new MegaBoss(Content.Load<Texture2D>("Megaboss"), new Vector2(17643, 10), Color.White, DerFire);
 
             //LOCKPICK
 
             LockPickScreen = new Sprite(Content.Load<Texture2D>("LockPickScreen"), new Vector2(0, 0), Color.White);
-            Recieve1 = new Sprite(Content.Load<Texture2D>("Recieve1"),new Vector2 (210,105),Color.White);
-            Recieve2 = new Sprite(Content.Load<Texture2D>("Recieve1"),new Vector2 (334,603),Color.White);
-            Recieve3 = new Sprite(Content.Load<Texture2D>("Recieve1"),new Vector2 (466,104),Color.White);
-            Recieve4 = new Sprite(Content.Load<Texture2D>("Recieve1"),new Vector2 (584,600),Color.White);
-            Recieve5 = new Sprite(Content.Load<Texture2D>("Recieve1"), new Vector2(590,103), Color.White);
-            Recieve6 = new Sprite(Content.Load<Texture2D>("Recieve2"), new Vector2(200,301), Color.White);
+            Recieve1 = new Sprite(Content.Load<Texture2D>("Recieve1"), new Vector2(210, 105), Color.White);
+            Recieve2 = new Sprite(Content.Load<Texture2D>("Recieve1"), new Vector2(334, 603), Color.White);
+            Recieve3 = new Sprite(Content.Load<Texture2D>("Recieve1"), new Vector2(466, 104), Color.White);
+            Recieve4 = new Sprite(Content.Load<Texture2D>("Recieve1"), new Vector2(584, 600), Color.White);
+            Recieve5 = new Sprite(Content.Load<Texture2D>("Recieve1"), new Vector2(590, 103), Color.White);
+            Recieve6 = new Sprite(Content.Load<Texture2D>("Recieve2"), new Vector2(200, 301), Color.White);
 
+            backblack = new Sprite(Content.Load<Texture2D>("Building Back"), Vector2.Zero, Color.White);
+
+            //grey stuff :(
+         
 
             Block1 = new Sprite(Content.Load<Texture2D>("GreenBlock"), new Vector2(205, 217), Color.White);
             Block2 = new Sprite(Content.Load<Texture2D>("RedBlock"), new Vector2(304, 270), Color.White);
-            Block3 = new Sprite(Content.Load<Texture2D>("YellowBlock"), new Vector2(403,212), Color.White);
+            Block3 = new Sprite(Content.Load<Texture2D>("YellowBlock"), new Vector2(403, 212), Color.White);
             Block4 = new Sprite(Content.Load<Texture2D>("OrangeBlock"), new Vector2(502, 238), Color.White);
-            Block5 = new Sprite(Content.Load<Texture2D>("BlueBlock"), new Vector2(597,280), Color.White);
-            bp = new Sprite(Content.Load<Texture2D>("bp"), new Vector2(828,323), Color.White);
+            Block5 = new Sprite(Content.Load<Texture2D>("BlueBlock"), new Vector2(597, 280), Color.White);
+            bp = new Sprite(Content.Load<Texture2D>("bp"), new Vector2(828, 323), Color.White);
             //doors and sutff
             Doormsg = new Sprite(Content.Load<Texture2D>("DoorMsg1"), new Vector2(0, 0), Color.White);
 
@@ -547,6 +567,9 @@ namespace FirstTryScrolling
                     Bullet[i].Update();
                 }
                 //Update123
+
+                //CastlebitStart = true;
+
                 //Trolls take damage from player
                 if (Trumpslides == false)
                 {
@@ -727,12 +750,14 @@ namespace FirstTryScrolling
                 if (player.hitbox.Intersects(GREYB.hitbox))
                 {
                     GameStopped = true;
+                    LOLiggy = false;
 
+                    CastlebitStart = true;
                 }
                 //next thing
                 if (player.hitbox.Intersects(Gateforgifted.hitbox))
                 {
-                    
+
                 }
 
 
@@ -751,10 +776,12 @@ namespace FirstTryScrolling
 
 
                 lightning._position.Y = player._position.Y - 460;
+
                 if (ks.IsKeyDown(Keys.Up) && lastks.IsKeyUp(Keys.Up))
                 {
                     player.moveUp();
                 }
+
                 int touchCounter = 0;
 
                 if (player.hitbox.Intersects(Signs[0].hitbox))
@@ -915,155 +942,214 @@ namespace FirstTryScrolling
                     }
 
                 }
-                if (LEFT == false)
+                if (CastlebitStart == true)
                 {
-                    if (ks.IsKeyDown(Keys.Right))
+                    if (ks.IsKeyDown(Keys.Space) && lastks.IsKeyUp(Keys.Space))
                     {
-                        mouseX += 10;
-                        Gateforgifted._position.X -= 10;
-                        player.effect = SpriteEffects.None;
-                        player.Direction = Direction.Right;
-                        RightSign._position.X -= 10;
-                        //player.
-                        GREYB._position.X -= 10;
-                        movementAmount++;
-                        for (int i = 0; i < Pol.Count; i++)
+                        if (player.effect == SpriteEffects.None)
                         {
-                            Pol[i]._position.X -= 10;
-                            Pol[i].hitbox = new Rectangle((int)Pol[i]._position.X, (int)Pol[i]._position.Y, Pol[i]._image.Width, Pol[i]._image.Height);
-                        }
-                        for (int i = 0; i < Blocks.Count; i++)
-                        {
-                            Blocks[i]._position.X -= 10;
-                            Blocks[i].hitbox = new Rectangle((int)Blocks[i]._position.X, (int)Blocks[i]._position.Y, Blocks[i]._image.Width, Blocks[i]._image.Height);
-                        }
-                        for (int i = 0; i < WPol.Count; i++)
-                        {
-                            WPol[i]._position.X -= 10;
-                            WPol[i].hitbox = new Rectangle((int)WPol[i]._position.X, (int)WPol[i]._position.Y, WPol[i]._image.Width, WPol[i]._image.Height);
-                        }
-                        for (int i = 0; i < Signs.Count; i++)
-                        {
-                            Signs[i]._position.X -= 10;
-                            Signs[i].hitbox.X -= 10;
-                        }
-                        for (int i = 0; i < Trolls.Count; i++)
-                        {
-                            Trolls[i]._position.X -= 10;
-                            Trolls[i].hitbox.X -= 10;
-                            for (int e = 0; e < Trolls[i].Bullets.Count; e++)
+
+                              PlayerBullets.Add(new Bullet(player._Bullet._image, player._position, player._Bullet._color, player._Bullet._speed, player.Direction));
+                            for (int i = 0; i < PlayerBullets.Count; i++)
                             {
-                                Trolls[i].Bullets[e].hitbox.X -= 10;
-                                Trolls[i].Bullets[e]._position.X -= 10;
+                                PlayerBullets[i]._position -= PlayerBullets[i]._speed;
+
                             }
                         }
-                        for (int i = 0; i < Bullet.Count; i++)
+                        else
                         {
-                            Bullet[i]._position.X -= 10;
+                            PlayerBullets.Add(new Bullet(player._Bullet._image, player._position, player._Bullet._color, -player._Bullet._speed, player.Direction));
+                            for (int i = 0; i < PlayerBullets.Count; i++)
+                            {
+                                PlayerBullets[i]._position -= PlayerBullets[i]._speed;
+
+                            }
                         }
-                        for (int i = 0; i < PlayerBullets.Count; i++)
+
+                    }
+                    if (player._position.X <= 0)
+                    {
+                        player._position.X = 0;
+                    }
+                    if (player._position.Y <= 0)
+                    {
+                        player._position.Y = 0;
+                    }
+                    if (player._position.X + player._image.Width >= GraphicsDevice.Viewport.Width)
+                    {
+                        player._position.X = GraphicsDevice.Viewport.Width - player._image.Width;
+                    }
+                }
+                if (ks.IsKeyDown(Keys.Left) && CastlebitStart == true)
+                {
+                    player.effect = SpriteEffects.FlipHorizontally;
+                    player.Direction = Direction.Left;
+                    player._position.X -= 10;
+                }
+                if (ks.IsKeyDown(Keys.Right) && CastlebitStart == true)
+                {
+                    player.effect = SpriteEffects.None;
+                    player.Direction = Direction.Right;
+                    player._position.X += 10;
+                }
+                if (CastlebitStart == false)
+                {
+                    if (LEFT == false)
+                    {
+                        if (ks.IsKeyDown(Keys.Right))
                         {
-                            player._Bullet._position.X -= 10;
+                            mouseX += 10;
+                            Gateforgifted._position.X -= 10;
+                            player.effect = SpriteEffects.None;
+                            player.Direction = Direction.Right;
+                            RightSign._position.X -= 10;
+                            //player.
+                            rrp._position.X -= 10;
+                            GREYB._position.X -= 10;
+                            GREYB.hitbox.X -= 10;
+                            movementAmount++;
+                            for (int i = 0; i < Pol.Count; i++)
+                            {
+                                Pol[i]._position.X -= 10;
+                                Pol[i].hitbox = new Rectangle((int)Pol[i]._position.X, (int)Pol[i]._position.Y, Pol[i]._image.Width, Pol[i]._image.Height);
+                            }
+                            for (int i = 0; i < Blocks.Count; i++)
+                            {
+                                Blocks[i]._position.X -= 10;
+                                Blocks[i].hitbox = new Rectangle((int)Blocks[i]._position.X, (int)Blocks[i]._position.Y, Blocks[i]._image.Width, Blocks[i]._image.Height);
+                            }
+                            for (int i = 0; i < WPol.Count; i++)
+                            {
+                                WPol[i]._position.X -= 10;
+                                WPol[i].hitbox = new Rectangle((int)WPol[i]._position.X, (int)WPol[i]._position.Y, WPol[i]._image.Width, WPol[i]._image.Height);
+                            }
+                            for (int i = 0; i < Signs.Count; i++)
+                            {
+                                Signs[i]._position.X -= 10;
+                                Signs[i].hitbox.X -= 10;
+                            }
+                            for (int i = 0; i < Trolls.Count; i++)
+                            {
+                                Trolls[i]._position.X -= 10;
+                                Trolls[i].hitbox.X -= 10;
+                                for (int e = 0; e < Trolls[i].Bullets.Count; e++)
+                                {
+                                    Trolls[i].Bullets[e].hitbox.X -= 10;
+                                    Trolls[i].Bullets[e]._position.X -= 10;
+                                }
+                            }
+                            for (int i = 0; i < Bullet.Count; i++)
+                            {
+                                Bullet[i]._position.X -= 10;
+                            }
+                            for (int i = 0; i < PlayerBullets.Count; i++)
+                            {
+                                player._Bullet._position.X -= 10;
+                            }
+                            for (int i = 0; i < pepe.Count; i++)
+                            {
+                                pepe[i]._position.X -= 10;
+                            }
+                            for (int i = 0; i < HealthKit.Count; i++)
+                            {
+                                HealthKit[i]._position.X -= 10;
+                            }
+                            JetPackPowerUp._position.X -= 10;
+                            JetPackPowerUp.hitbox.X -= 10;
+                            Door._position.X -= 10;
+                            Door.hitbox.X -= 10;
                         }
-                        for (int i = 0; i < pepe.Count; i++)
-                        {
-                            pepe[i]._position.X -= 10;
-                        }
+                        //imphealth
                         for (int i = 0; i < HealthKit.Count; i++)
                         {
-                            HealthKit[i]._position.X -= 10;
+                            if (player.hitbox.Intersects(HealthKit[i].hitbox))
+                            {
+                                player.Health += 20;
+                                HealthKit.RemoveAt(i);
+                            }
+
                         }
-                        JetPackPowerUp._position.X -= 10;
-                        JetPackPowerUp.hitbox.X -= 10;
-                        Door._position.X -= 10;
-                        Door.hitbox.X -= 10;
-                    }
-                    //imphealth
-                    for (int i = 0; i < HealthKit.Count; i++)
-                    {
-                        if (player.hitbox.Intersects(HealthKit[i].hitbox))
+
+                        if (player.hitbox.Intersects(JetPackPowerUp.hitbox))
                         {
-                            player.Health += 20;
-                            HealthKit.RemoveAt(i);
+                            Trumpjumpcount = true;
+                            JetPackPowerUp._position.Y = -434;
+                            JetPackPowerUp.hitbox.Y = -378;
                         }
-
-                    }
-
-                    if (player.hitbox.Intersects(JetPackPowerUp.hitbox))
-                    {
-                        Trumpjumpcount = true;
-                        JetPackPowerUp._position.Y = -434;
-                        JetPackPowerUp.hitbox.Y = -378;
                     }
                     for (int i = 0; i < HealthKit.Count; i++)
                     {
                         HealthKit[i].Update();
                     }
-                    if (RIGHT == false)
+                    if (CastlebitStart == false)
                     {
-                        if (ks.IsKeyDown(Keys.Left) && movementAmount > 0)
+                        if (RIGHT == false)
                         {
-                            mouseX -= 10;
-                            player.effect = SpriteEffects.FlipHorizontally;
-                            player.Direction = Direction.Left;
-                            movementAmount--;
-                            GREYB._position.X += 10;
-                            Gateforgifted._position.X += 10;
-                            RightSign._position.X += 10;
-                            for (int i = 0; i < Pol.Count; i++)
+                            if (ks.IsKeyDown(Keys.Left) && movementAmount > 0)
                             {
-                                Pol[i]._position.X += 10;
-                                Pol[i].hitbox = new Rectangle((int)Pol[i]._position.X, (int)Pol[i]._position.Y, Pol[i]._image.Width, Pol[i]._image.Height);
-                            }
-                            for (int i = 0; i < Blocks.Count; i++)
-                            {
-                                Blocks[i]._position.X += 10;
-                                Blocks[i].hitbox = new Rectangle((int)Blocks[i]._position.X, (int)Blocks[i]._position.Y, Blocks[i]._image.Width, Blocks[i]._image.Height);
-                            }
-                            for (int i = 0; i < WPol.Count; i++)
-                            {
-                                WPol[i]._position.X += 10;
-                                WPol[i].hitbox = new Rectangle((int)WPol[i]._position.X, (int)WPol[i]._position.Y, WPol[i]._image.Width, WPol[i]._image.Height);
-                            }
-                            for (int i = 0; i < Signs.Count; i++)
-                            {
-                                Signs[i]._position.X += 10;
-                                Signs[i].hitbox.X += 10;
-                            }
-                            for (int i = 0; i < Trolls.Count; i++)
-                            {
-                                Trolls[i]._position.X += 10;
-                                Trolls[i].hitbox.X += 10;
-                                for (int e = 0; e < Trolls[i].Bullets.Count; e++)
+                                mouseX -= 10;
+                                player.effect = SpriteEffects.FlipHorizontally;
+                                player.Direction = Direction.Left;
+                                movementAmount--;
+                                GREYB._position.X += 10;
+                                GREYB.hitbox.X += 10;
+                                rrp._position.X += 10;
+                                Gateforgifted._position.X += 10;
+                                RightSign._position.X += 10;
+                                for (int i = 0; i < Pol.Count; i++)
                                 {
-                                    Trolls[i].Bullets[e].hitbox.X += 10;
-                                    Trolls[i].Bullets[e]._position.X += 10;
+                                    Pol[i]._position.X += 10;
+                                    Pol[i].hitbox = new Rectangle((int)Pol[i]._position.X, (int)Pol[i]._position.Y, Pol[i]._image.Width, Pol[i]._image.Height);
                                 }
+                                for (int i = 0; i < Blocks.Count; i++)
+                                {
+                                    Blocks[i]._position.X += 10;
+                                    Blocks[i].hitbox = new Rectangle((int)Blocks[i]._position.X, (int)Blocks[i]._position.Y, Blocks[i]._image.Width, Blocks[i]._image.Height);
+                                }
+                                for (int i = 0; i < WPol.Count; i++)
+                                {
+                                    WPol[i]._position.X += 10;
+                                    WPol[i].hitbox = new Rectangle((int)WPol[i]._position.X, (int)WPol[i]._position.Y, WPol[i]._image.Width, WPol[i]._image.Height);
+                                }
+                                for (int i = 0; i < Signs.Count; i++)
+                                {
+                                    Signs[i]._position.X += 10;
+                                    Signs[i].hitbox.X += 10;
+                                }
+                                for (int i = 0; i < Trolls.Count; i++)
+                                {
+                                    Trolls[i]._position.X += 10;
+                                    Trolls[i].hitbox.X += 10;
+                                    for (int e = 0; e < Trolls[i].Bullets.Count; e++)
+                                    {
+                                        Trolls[i].Bullets[e].hitbox.X += 10;
+                                        Trolls[i].Bullets[e]._position.X += 10;
+                                    }
 
+                                }
+                                for (int i = 0; i < Bullet.Count; i++)
+                                {
+                                    Bullet[i]._position.X += 10;
+                                }
+                                for (int i = 0; i < PlayerBullets.Count; i++)
+                                {
+                                    player._Bullet._position.X += 10;
+                                }
+                                for (int i = 0; i < pepe.Count; i++)
+                                {
+                                    pepe[i]._position.X += 10;
+                                }
+                                for (int i = 0; i < HealthKit.Count; i++)
+                                {
+                                    HealthKit[i]._position.X += 10;
+                                }
+                                JetPackPowerUp._position.X += 10;
+                                JetPackPowerUp.hitbox.X += 10;
+                                Door._position.X += 10;
+                                Door.hitbox.X += 10;
                             }
-                            for (int i = 0; i < Bullet.Count; i++)
-                            {
-                                Bullet[i]._position.X += 10;
-                            }
-                            for (int i = 0; i < PlayerBullets.Count; i++)
-                            {
-                                player._Bullet._position.X += 10;
-                            }
-                            for (int i = 0; i < pepe.Count; i++)
-                            {
-                                pepe[i]._position.X += 10;
-                            }
-                            for (int i = 0; i < HealthKit.Count; i++)
-                            {
-                                HealthKit[i]._position.X += 10;
-                            }
-                            JetPackPowerUp._position.X += 10;
-                            JetPackPowerUp.hitbox.X += 10;
-                            Door._position.X += 10;
-                            Door.hitbox.X += 10;
                         }
                     }
-
 
 
                     base.Update(gameTime);
@@ -1078,7 +1164,7 @@ namespace FirstTryScrolling
             spriteBatch.Begin();
 
             GraphicsDevice.Clear(Color.White);
-            
+
             //spriteBatch.DrawString(Content.Load<SpriteFont>("MOUSE"), player.jumpCount.ToString(), Vector2.Zero, Color.Black);
             //spriteBatch.DrawString(Content.Load<SpriteFont>("MOUSE"), "X:" + ms.X.ToString() + "Y:" + ms.Y.ToString(),new Vector2(0,0),Color.Black);
 
@@ -1092,6 +1178,7 @@ namespace FirstTryScrolling
             Back8.Draw(spriteBatch);
 
             mouse.Draw(spriteBatch);
+
             for (int i = 0; i < Signs.Count; i++)
             {
                 Signs[i].Draw(spriteBatch);
@@ -1150,18 +1237,12 @@ namespace FirstTryScrolling
                 Trolls[i].Draw(spriteBatch, font);
             }
 
-            for (int i = 0; i < Bullet.Count; i++)
-            {
-                Bullet[i].Draw(spriteBatch);
-            }
+
             for (int i = 0; i < Trolls.Count; i++)
             {
                 Trolls[i].Draw(spriteBatch, font);
             }
-            for (int i = 0; i < PlayerBullets.Count; i++)
-            {
-                PlayerBullets[i].Draw(spriteBatch);
-            }
+            
             JetPackPowerUp.Draw(spriteBatch);
 
             for (int i = 0; i < pepe.Count; i++)
@@ -1174,6 +1255,16 @@ namespace FirstTryScrolling
             }
             Door.Draw(spriteBatch);
 
+            if (CastlebitStart == true)
+            {
+                backblack.Draw(spriteBatch);
+
+
+            }
+            for (int i = 0; i < PlayerBullets.Count; i++)
+            {
+                PlayerBullets[i].Draw(spriteBatch);
+            }
             player.Draw(spriteBatch, font);
             if (doorslides == true)
             {
@@ -1187,15 +1278,19 @@ namespace FirstTryScrolling
             {
                 Doormsg3.Draw(spriteBatch);
             }
-            if (gateShow == true)
+            if (gateShow == true && CastlebitStart == false)
             {
                 Gateforgifted.Draw(spriteBatch);
                 RightSign.Draw(spriteBatch);
-            }           
+            }
+            if (CastlebitStart == true)
+            {
+                rrp.Draw(spriteBatch);
+            }
             if (HowtoLockPick == true)
             {
                 preLockMsg.Draw(spriteBatch);
-            }                   
+            }
             if (LockPickStart == true)
             {
                 Recieve1.Draw(spriteBatch);
@@ -1215,10 +1310,14 @@ namespace FirstTryScrolling
             if (LOLiggy == true)
             {
                 GREYB.Draw(spriteBatch);
+                
             }
             
             mouse.Draw(spriteBatch);
-
+            for (int i = 0; i < Bullet.Count; i++)
+            {
+                Bullet[i].Draw(spriteBatch);
+            }
             spriteBatch.DrawString(font, "X:" + (ms.X + mouseX) + "Y:" + ms.Y, new Vector2(0, 0), Color.Black);
 
             if (GameStopped == true && player.lives == 0)

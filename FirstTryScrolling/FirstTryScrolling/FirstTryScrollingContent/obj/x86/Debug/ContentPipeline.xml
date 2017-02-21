@@ -397,6 +397,42 @@
       <Output>C:\Users\Joshua Programming\Documents\John-Cena\FirstTryScrolling\FirstTryScrolling\FirstTryScrolling\bin\x86\Debug\Content\NOTACULT.xnb</Output>
       <Time>2017-02-16T17:15:22.0705687-08:00</Time>
     </Item>
+    <Item>
+      <Source>Building Back.png</Source>
+      <Name>Building Back</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Joshua Programming\Documents\John-Cena\FirstTryScrolling\FirstTryScrolling\FirstTryScrolling\bin\x86\Debug\Content\Building Back.xnb</Output>
+      <Time>2017-02-16T19:17:31.9043236-08:00</Time>
+    </Item>
+    <Item>
+      <Source>GreyBlock.png</Source>
+      <Name>GreyBlock</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Joshua Programming\Documents\John-Cena\FirstTryScrolling\FirstTryScrolling\FirstTryScrolling\bin\x86\Debug\Content\GreyBlock.xnb</Output>
+      <Time>2017-02-16T18:14:56.1294159-08:00</Time>
+    </Item>
+    <Item>
+      <Source>Megaboss.png</Source>
+      <Name>Megaboss</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Joshua Programming\Documents\John-Cena\FirstTryScrolling\FirstTryScrolling\FirstTryScrolling\bin\x86\Debug\Content\Megaboss.xnb</Output>
+      <Time>2017-02-20T15:09:29.0878861-08:00</Time>
+    </Item>
+    <Item>
+      <Source>daFire.png</Source>
+      <Name>daFire</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Joshua Programming\Documents\John-Cena\FirstTryScrolling\FirstTryScrolling\FirstTryScrolling\bin\x86\Debug\Content\daFire.xnb</Output>
+      <Time>2017-02-20T17:09:26.9405304-08:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

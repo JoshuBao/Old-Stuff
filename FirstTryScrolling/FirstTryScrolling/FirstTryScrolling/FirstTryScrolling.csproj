@@ -111,6 +111,7 @@
     <Compile Include="Direction.cs" />
     <Compile Include="DoNEXTclass.cs" />
     <Compile Include="Lightning.cs" />
+    <Compile Include="MegaBoss.cs" />
     <Compile Include="Pepe.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

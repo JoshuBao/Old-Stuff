@@ -11,6 +11,8 @@ namespace FirstTryScrolling
     {
         public Vector2 _speed;
         public SpriteEffects effect;
+        public float rotation = 0;
+
         public Bullet(Texture2D texture, Vector2 position, Color color, Vector2 speed, Direction direction)
             : base(texture, position, color)
         {
@@ -36,9 +38,20 @@ namespace FirstTryScrolling
             base.Update();
         }
 
+        public void Target(Vector2 target)
+        {
+            //find angle
+            Vector2 diff = target - _position;
+            rotation = (float)Math.Atan2(diff.Y, diff.X);
+
+            //set speed
+            diff.Normalize();
+            _speed = diff * _speed.Length();
+        }
+
         public override void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(_image, _position, null, Color.White, 0, Vector2.One , 1, effect, 0);
+            spriteBatch.Draw(_image, _position, null, Color.White, rotation, Vector2.One , 1, effect, 0);
         }
     }
 }

@@ -28,7 +28,7 @@ namespace FirstTryScrolling
         //
         //
         //
-        //after the gate do a gameshow thingy :D
+        //after the gate do a gameshow thingy :D X X X X X X X 
         //
         //
         //
@@ -39,5 +39,13 @@ namespace FirstTryScrolling
         //
         //
         //
+        //
+        ///
+        ///add text of pepe "I will steal all the memes MUWHHAHWHWAHWA!"
+        ///blob "D: Neva!"
+        ///Have boss move down the across for player to shoot
+        ///then move bak up and shoot fire balls :>
+        ///or bounce??? maybe it bounces
+        ///
     }
 }
