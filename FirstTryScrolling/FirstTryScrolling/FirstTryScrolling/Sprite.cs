@@ -9,28 +9,29 @@ namespace FirstTryScrolling
 {
     public class Sprite
     {
-        public Texture2D _image;
-        public Vector2 _position;
-        public Color _color;
-        public Rectangle hitbox;
+        public Texture2D Image;
+        public Vector2 Position;
+        public Color Color;
+
+        public Rectangle Hitbox
+        {
+            get
+            {
+                return new Rectangle((int)Position.X, (int)Position.Y, Image.Width, Image.Height);
+            }
+        }
 
         public Sprite(Texture2D image, Vector2 position, Color color)
         {
-            _image = image;
-            _position = position;
-            _color = color;
-            hitbox = new Rectangle((int)_position.X,(int) _position.Y, _image.Width, _image.Height);
-        }
-
-        public virtual void Update()
-        {
-            hitbox = new Rectangle((int)_position.X, (int)_position.Y, _image.Width, _image.Height);
+            Image = image;
+            Position = position;
+            Color = color;
         }
 
         public virtual void Draw(SpriteBatch spriteBatch)
         {
             //spriteBatch.Draw(Game1.pixel, hitbox, Color.Blue);
-            spriteBatch.Draw(_image, _position, _color);
+            spriteBatch.Draw(Image, Position, Color);
             
         }
     }

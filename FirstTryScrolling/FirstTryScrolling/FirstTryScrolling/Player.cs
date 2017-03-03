@@ -31,37 +31,35 @@ namespace FirstTryScrolling
             _Bullet = Bullet;
             effect = SpriteEffects.None;
             
-            THitbox = new Rectangle((int)_position.X, (int)_position.Y, _image.Width, 1);
-            BHitbox = new Rectangle((int)_position.X, (int)_position.Y + _image.Height, _image.Width, 1);
-            RHitbox = new Rectangle((int)_position.X + _image.Width, (int)_position.Y + _image.Height/4, 1, _image.Height/2);
-            LHitbox = new Rectangle((int)_position.X, (int)_position.Y + _image.Height / 4, 1, _image.Height/2);
+            THitbox = new Rectangle((int)Position.X, (int)Position.Y, Image.Width, 1);
+            BHitbox = new Rectangle((int)Position.X, (int)Position.Y + Image.Height, Image.Width, 1);
+            RHitbox = new Rectangle((int)Position.X + Image.Width, (int)Position.Y + Image.Height/4, 1, Image.Height/2);
+            LHitbox = new Rectangle((int)Position.X, (int)Position.Y + Image.Height / 4, 1, Image.Height/2);
 
         }
 
-        public override void Update()
+        public void Update()
         {
-            _position.Y += GRAVITY;
-            _position.Y -= jumpSpeed;
+            Position.Y += GRAVITY;
+            Position.Y -= jumpSpeed;
             jumpSpeed = (int)MathHelper.Clamp(jumpSpeed - jumpDecayRate, 0, maxJumpSpeed);
-            if (_position.Y < 0)
+            if (Position.Y < 0)
             {
-                _position.Y = 0;
+                Position.Y = 0;
             }
-            if (touchpit == false && _position.Y > 460)
+            if (touchpit == false && Position.Y > 460)
             {
             //if )
            // {
-                _position.Y = 460;
+                Position.Y = 460;
                 jumpCount = 0;
                 jumpSpeed = 0;
           //  }
             }
-            THitbox = new Rectangle((int)_position.X, (int)_position.Y, _image.Width, 1);
-            BHitbox = new Rectangle((int)_position.X, (int)_position.Y + _image.Height, _image.Width, 1);
-            RHitbox = new Rectangle((int)_position.X + _image.Width, (int)_position.Y + _image.Height / 4, 1, _image.Height / 2);
-            LHitbox = new Rectangle((int)_position.X, (int)_position.Y + _image.Height / 4, 1, _image.Height / 2);
-
-            base.Update();
+            THitbox = new Rectangle((int)Position.X, (int)Position.Y, Image.Width, 1);
+            BHitbox = new Rectangle((int)Position.X, (int)Position.Y + Image.Height, Image.Width, 1);
+            RHitbox = new Rectangle((int)Position.X + Image.Width, (int)Position.Y + Image.Height / 4, 1, Image.Height / 2);
+            LHitbox = new Rectangle((int)Position.X, (int)Position.Y + Image.Height / 4, 1, Image.Height / 2);
         }
 
         public void moveUp()
@@ -70,18 +68,18 @@ namespace FirstTryScrolling
             {
                 jumpSpeed = maxJumpSpeed;
                 jumpCount++;
-                THitbox = new Rectangle((int)_position.X, (int)_position.Y, _image.Width, 1);
-                BHitbox = new Rectangle((int)_position.X, (int)_position.Y + _image.Height, _image.Width, 1);
-                RHitbox = new Rectangle((int)_position.X + _image.Width, (int)_position.Y + _image.Height / 4, 1, _image.Height / 2);
-                LHitbox = new Rectangle((int)_position.X, (int)_position.Y + _image.Height / 4, 1, _image.Height / 2);
+                THitbox = new Rectangle((int)Position.X, (int)Position.Y, Image.Width, 1);
+                BHitbox = new Rectangle((int)Position.X, (int)Position.Y + Image.Height, Image.Width, 1);
+                RHitbox = new Rectangle((int)Position.X + Image.Width, (int)Position.Y + Image.Height / 4, 1, Image.Height / 2);
+                LHitbox = new Rectangle((int)Position.X, (int)Position.Y + Image.Height / 4, 1, Image.Height / 2);
             }
         }
         public void Draw(SpriteBatch spriteBatch, SpriteFont f)
         {
 
             //spriteBatch.Draw(Game1.pixel, hitbox, Color.Blue);
-            spriteBatch.Draw(_image, _position, null, _color, 0f, Vector2.Zero, 1f, effect, 0);
-            spriteBatch.DrawString(f, ("Health:" + Health + "\n Lives:" + lives), new Vector2(_position.X + (_image.Width / 4) - 12, _position.Y - 49), Color.Black);
+            spriteBatch.Draw(Image, Position, null, Color, 0f, Vector2.Zero, 1f, effect, 0);
+            spriteBatch.DrawString(f, ("Health:" + Health + "\n Lives:" + lives), new Vector2(Position.X + (Image.Width / 4) - 12, Position.Y - 49), Color.Black);
         }
     }
 }

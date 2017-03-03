@@ -27,21 +27,15 @@ namespace FirstTryScrolling
                 effect = SpriteEffects.FlipHorizontally;
             }
         }
-        public override void Update()
+        public void Update()
         {
-            _position += _speed;
-
-
-            hitbox.X = (int)_position.X;
-            hitbox.Y = (int)_position.Y;
-
-            base.Update();
+            Position += _speed;
         }
 
         public void Target(Vector2 target)
         {
             //find angle
-            Vector2 diff = target - _position;
+            Vector2 diff = target - Position;
             rotation = (float)Math.Atan2(diff.Y, diff.X);
 
             //set speed
@@ -51,7 +45,7 @@ namespace FirstTryScrolling
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(_image, _position, null, Color.White, rotation, Vector2.One , 1, effect, 0);
+            spriteBatch.Draw(Image, Position, null, Color.White, rotation, Vector2.One , 1, effect, 0);
         }
     }
 }

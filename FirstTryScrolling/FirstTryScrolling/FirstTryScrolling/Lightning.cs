@@ -7,28 +7,12 @@ using Microsoft.Xna.Framework;
 
 namespace FirstTryScrolling
 {
-    class Lightning
+    class Lightning : Sprite
     {
-
-        public Texture2D _image;
-        public Vector2 _position;
-        public Color _color;
-
-
         public Lightning(Texture2D image, Vector2 position, Color color)
+            : base(image, position, color)
         {
-            _image = image;
-            _position = position;
-            _color = color;
-
-        }
-
-
-        public void Draw(SpriteBatch spriteBatch)
-        {
-
-            spriteBatch.Draw(_image, _position, _color);
-
+            
         }
     }
 }
