@@ -290,15 +290,6 @@
       <Time>2017-01-06T14:02:10.6059945-08:00</Time>
     </Item>
     <Item>
-      <Source>MOUSE.spritefont</Source>
-      <Name>MOUSE</Name>
-      <Importer>FontDescriptionImporter</Importer>
-      <Processor>FontDescriptionProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Joshua Programming\Documents\John-Cena\FirstTryScrolling\FirstTryScrolling\FirstTryScrolling\bin\x86\Debug\Content\MOUSE.xnb</Output>
-      <Time>2016-06-30T16:43:48.8157214-07:00</Time>
-    </Item>
-    <Item>
       <Source>LockPickScreen.png</Source>
       <Name>LockPickScreen</Name>
       <Importer>TextureImporter</Importer>
@@ -450,6 +441,15 @@
       <Options>None</Options>
       <Output>C:\Users\Joshua Programming\Documents\John-Cena\FirstTryScrolling\FirstTryScrolling\FirstTryScrolling\bin\x86\Debug\Content\BlobMsg.xnb</Output>
       <Time>2017-02-23T18:54:20.5394607-08:00</Time>
+    </Item>
+    <Item>
+      <Source>MOUSE.spritefont</Source>
+      <Name>MOUSE</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Joshua Programming\Documents\John-Cena\FirstTryScrolling\FirstTryScrolling\FirstTryScrolling\bin\x86\Debug\Content\MOUSE.xnb</Output>
+      <Time>2016-06-30T16:43:48.8157214-07:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

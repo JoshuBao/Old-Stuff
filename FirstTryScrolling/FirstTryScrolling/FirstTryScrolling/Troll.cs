@@ -8,7 +8,6 @@ using Microsoft.Xna.Framework;
 namespace FirstTryScrolling
 {
     class Troll : Sprite
-        
     {
   
         bool updown = false;
@@ -30,9 +29,6 @@ namespace FirstTryScrolling
 
             _delayControl = TimeSpan.Zero;
             _bulletDelay = new TimeSpan(0, 0, 0, 0 , 300);
-            Image = image;
-            Position = position;
-            Color = color;
             _bullet = bullet;
             Bullets = new List<Bullet>();
              
@@ -84,15 +80,14 @@ namespace FirstTryScrolling
 
         public void Draw(SpriteBatch spriteBatch, SpriteFont s)
         {
-            
-            //spriteBatch.Draw(Game1.pixel, hitbox, Color.Blue);
+            base.Draw(spriteBatch);
+
             for (int i = 0; i < Bullets.Count; i++)
             {
                 Bullets[i].Draw(spriteBatch);
             }
-            spriteBatch.Draw(Image, Position, Color);
+
             spriteBatch.DrawString(s, ("Health:" + Health), new Vector2(Position.X + (Image.Width /4) ,Position.Y - 25), Color.Black);
-            
         }
     }
 }

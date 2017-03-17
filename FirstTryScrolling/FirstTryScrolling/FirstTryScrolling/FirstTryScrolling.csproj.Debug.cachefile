@@ -30,7 +30,6 @@ Content\DoorMsg3.xnb
 Content\Soldier.xnb
 Content\gate.xnb
 Content\GoRightSign.xnb
-Content\MOUSE.xnb
 Content\LockPickScreen.xnb
 Content\GreenBlock.xnb
 Content\OrangeBlock.xnb
@@ -48,3 +47,4 @@ Content\Megaboss.xnb
 Content\daFire.xnb
 Content\MegaMsg.xnb
 Content\BlobMsg.xnb
+Content\MOUSE.xnb
