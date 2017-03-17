@@ -7,31 +7,22 @@ using Microsoft.Xna.Framework;
 
 namespace FirstTryScrolling
 {
-    class Troll : Sprite
+    class Troll : Enemies
     {
   
         bool updown = false;
-        public Bullet _bullet;
-        public int Health = 30;
-        TimeSpan _bulletDelay;
-        public List<Bullet> Bullets;
-        TimeSpan _delayControl;
-        TimeSpan _activeTimer;
-        TimeSpan _damageTimer;
-        public bool hit = false;
-        public Direction Direction;
 
-        public Troll(Texture2D image, Vector2 position, Color color, Bullet bullet)
-           : base(image,position,color)
+        
+        public Troll(Texture2D image, Vector2 position, Color color, Bullet bullet, int Health,  List<Bullet> _Bullets, Direction direction)
+           : base(image,position,color,Health,bullet,direction)
         {
             _activeTimer = new TimeSpan(0);
             _damageTimer = new TimeSpan(0, 0, 0, 0, 100);
 
             _delayControl = TimeSpan.Zero;
             _bulletDelay = new TimeSpan(0, 0, 0, 0 , 300);
-            _bullet = bullet;
-            Bullets = new List<Bullet>();
-             
+            Health = 30;
+            _Bullets = new List<Bullet>();
         }
         public virtual void Update(GameTime gameTime, List<Bullet> Bullet)
         {
@@ -40,10 +31,10 @@ namespace FirstTryScrolling
             {
                 _delayControl = TimeSpan.Zero;
                 Vector2 bulletSpawn = new Vector2( Position.X + (Image.Width - _bullet.Image.Width) / 2, Position.Y);
-                Bullets.Add(new Bullet(_bullet.Image, bulletSpawn, _bullet.Color, _bullet._speed, Direction));
+                _Bullets.Add(new Bullet(_bullet.Image, bulletSpawn, _bullet.Color, _bullet._speed, _direction));
                 //where we shoot a bullet
             }
-            foreach (var B in Bullets)
+            foreach (var B in _Bullets)
             {
                 B.Update();
             }
@@ -82,12 +73,12 @@ namespace FirstTryScrolling
         {
             base.Draw(spriteBatch);
 
-            for (int i = 0; i < Bullets.Count; i++)
+            for (int i = 0; i < _Bullets.Count; i++)
             {
-                Bullets[i].Draw(spriteBatch);
+                _Bullets[i].Draw(spriteBatch);
             }
 
-            spriteBatch.DrawString(s, ("Health:" + Health), new Vector2(Position.X + (Image.Width /4) ,Position.Y - 25), Color.Black);
+            spriteBatch.DrawString(s, ("Health:" + _Health), new Vector2(Position.X + (Image.Width /4) ,Position.Y - 25), Color.Black);
         }
     }
 }

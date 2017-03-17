@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace FirstTryScrolling
 {
-    class Pepe : Sprite
+    class Pepe : Sprite 
     {
         public Bullet _bullet;
         public int Health = 50;

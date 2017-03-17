@@ -343,11 +343,16 @@ namespace FirstTryScrolling
             //TROLL STUFF
             Bullet Trollbullet = new Bullet(Content.Load<Texture2D>("Troll Bomb"), new Vector2(-100000, -320), Color.White, new Vector2(0, 10), Direction.Left);
             Trolls = new List<Troll>();
+
             Trolls.Add(new Troll(Content.Load<Texture2D>("Troll"), new Vector2(8500, 0), Color.White, Trollbullet));
             Trolls.Add(new Troll(Content.Load<Texture2D>("Troll"), new Vector2(9000, 900), Color.White, Trollbullet));
             Trolls.Add(new Troll(Content.Load<Texture2D>("Troll"), new Vector2(9500, 0), Color.White, Trollbullet));
             Trolls.Add(new Troll(Content.Load<Texture2D>("Troll"), new Vector2(10400, 900), Color.White, Trollbullet));
             Trolls.Add(new Troll(Content.Load<Texture2D>("Troll"), new Vector2(10900, 0), Color.White, Trollbullet));
+            for (int i = 0; i < Trolls.Count; i++)
+            {
+                Trolls[i].settimespan(TimeSpan.Zero, TimeSpan.Zero, TimeSpan.FromMilliseconds(300), TimeSpan.FromMilliseconds(100));
+            }
 
             //pepe army
             pepe = new List<Pepe>();
