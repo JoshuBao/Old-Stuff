@@ -9,28 +9,28 @@ namespace FirstTryScrolling
 {
     class Enemies : Sprite
     {
-        protected int _Health = 0;
+        public int _Health = 0;
         protected TimeSpan _delayControl;
         protected TimeSpan _activeTimer;
         protected TimeSpan _damageTimer;
         protected TimeSpan _bulletDelay;
-        protected bool hit;
-        protected List<Bullet> _Bullets;
+        public bool hit;
+        public List<Bullet> _Bullets;
         protected Direction _direction;
-        protected Bullet _bullet;
+        public Bullet _bullet;
 
 
-        public void settimespan(TimeSpan delayControl, TimeSpan activeTimer, TimeSpan bulletDelay,TimeSpan damageTimer)
+        public void Settimespan(TimeSpan delayControl, TimeSpan activeTimer, TimeSpan bulletDelay,TimeSpan damageTimer)
         {
             _delayControl = delayControl;
             _activeTimer = activeTimer;
             _damageTimer = damageTimer;
             _bulletDelay = bulletDelay;
         }
-        public Enemies(Texture2D image, Vector2 position, Color color, int Health, Bullet bullet, Direction direction)
+        public Enemies(Texture2D image, Vector2 position, Color color, Bullet bullet, Direction direction)
             : base(image, position, color)
         {
-            _Health = Health;
+            
             _bullet = bullet;
             
             _Bullets = new List<Bullet>();

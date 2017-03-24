@@ -7,20 +7,11 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace FirstTryScrolling
 {
-    class Pepe : Sprite 
+    class Pepe : Enemies
     {
-        public Bullet _bullet;
-        public int Health = 50;
-        TimeSpan _bulletDelay;
-        public List<Bullet> Bullets;
-        TimeSpan _delayControl;
-        TimeSpan _activeTimer;
-        TimeSpan _damageTimer;
-        public bool hit = false;
-        public Direction direction;
 
-        public Pepe(Texture2D image, Vector2 position, Color color, Bullet bullet)
-            : base(image, position, color)
+        public Pepe(Texture2D image, Vector2 position, Color color, Bullet bullet, Direction direction)
+            : base(image,position,color,bullet,direction)
         {
             _activeTimer = new TimeSpan(0);
             _damageTimer = new TimeSpan(0, 0, 0, 1);
@@ -28,7 +19,7 @@ namespace FirstTryScrolling
             _delayControl = TimeSpan.Zero;
             _bulletDelay = new TimeSpan(0, 0, 0, 2);
             _bullet = bullet;
-            Bullets = new List<Bullet>();
+            _Health = 40;
 
         }
 
@@ -40,10 +31,10 @@ namespace FirstTryScrolling
             {
                 _delayControl = TimeSpan.Zero;
                 Vector2 bulletSpawn = new Vector2(Position.X + (Image.Width - _bullet.Image.Width) / 2, Position.Y);
-                Bullets.Add(new Bullet(_bullet.Image, bulletSpawn, _bullet.Color, _bullet._speed, direction));
+                _Bullets.Add(new Bullet(_bullet.Image, bulletSpawn, _bullet.Color, _bullet._speed,Direction.Right));
                 //where we shoot a bullet
             }
-            foreach (Bullet bullet in Bullets)
+            foreach (Bullet bullet in _Bullets)
             {
                 bullet.Update();
             }
@@ -62,16 +53,16 @@ namespace FirstTryScrolling
             {
                 Color = Color.White;
             }
-            for (int i = 0; i < Bullets.Count; i++)
+            for (int i = 0; i < _Bullets.Count; i++)
             {
-                if (Bullets[i].Position.X <= 0)
+                if (_Bullets[i].Position.X <= 0)
                 {
-                    Bullets.Remove(Bullets[i]);
+                    _Bullets.Remove(_Bullets[i]);
                     i--;
                 }
-                else if (Bullets[i].Position.X >= 900)
+                else if (_Bullets[i].Position.X >= 900)
                 {
-                    Bullets.Remove(Bullets[i]);
+                    _Bullets.Remove(_Bullets[i]);
                     i--;
                 }
             }
@@ -81,11 +72,11 @@ namespace FirstTryScrolling
         {
             base.Draw(spriteBatch);
 
-            for (int i = 0; i < Bullets.Count; i++)
+            for (int i = 0; i < _Bullets.Count; i++)
             {
-                Bullets[i].Draw(spriteBatch);
+                _Bullets[i].Draw(spriteBatch);
             }
-            spriteBatch.DrawString(s, ("Health:" + Health), new Vector2(Position.X + (Image.Width / 4), Position.Y - 25), Color.Black);
+            spriteBatch.DrawString(s, ("Health:" + _Health), new Vector2(Position.X + (Image.Width / 4), Position.Y - 25), Color.Black);
         }
     }
 }

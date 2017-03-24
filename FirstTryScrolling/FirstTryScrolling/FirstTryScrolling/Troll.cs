@@ -13,16 +13,16 @@ namespace FirstTryScrolling
         bool updown = false;
 
         
-        public Troll(Texture2D image, Vector2 position, Color color, Bullet bullet, int Health,  List<Bullet> _Bullets, Direction direction)
-           : base(image,position,color,Health,bullet,direction)
+        public Troll(Texture2D image, Vector2 position, Color color, Bullet bullet,Direction direction)
+           : base(image,position,color,bullet,direction)
         {
             _activeTimer = new TimeSpan(0);
             _damageTimer = new TimeSpan(0, 0, 0, 0, 100);
 
             _delayControl = TimeSpan.Zero;
             _bulletDelay = new TimeSpan(0, 0, 0, 0 , 300);
-            Health = 30;
-            _Bullets = new List<Bullet>();
+            _Health = 30;
+            
         }
         public virtual void Update(GameTime gameTime, List<Bullet> Bullet)
         {

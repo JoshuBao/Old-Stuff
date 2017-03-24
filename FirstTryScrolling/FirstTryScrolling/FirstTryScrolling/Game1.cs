@@ -344,30 +344,33 @@ namespace FirstTryScrolling
             Bullet Trollbullet = new Bullet(Content.Load<Texture2D>("Troll Bomb"), new Vector2(-100000, -320), Color.White, new Vector2(0, 10), Direction.Left);
             Trolls = new List<Troll>();
 
-            Trolls.Add(new Troll(Content.Load<Texture2D>("Troll"), new Vector2(8500, 0), Color.White, Trollbullet));
-            Trolls.Add(new Troll(Content.Load<Texture2D>("Troll"), new Vector2(9000, 900), Color.White, Trollbullet));
-            Trolls.Add(new Troll(Content.Load<Texture2D>("Troll"), new Vector2(9500, 0), Color.White, Trollbullet));
-            Trolls.Add(new Troll(Content.Load<Texture2D>("Troll"), new Vector2(10400, 900), Color.White, Trollbullet));
-            Trolls.Add(new Troll(Content.Load<Texture2D>("Troll"), new Vector2(10900, 0), Color.White, Trollbullet));
+            Trolls.Add(new Troll(Content.Load<Texture2D>("Troll"), new Vector2(8500, 0), Color.White, Trollbullet, Direction.Right));
+            Trolls.Add(new Troll(Content.Load<Texture2D>("Troll"), new Vector2(9000, 900), Color.White, Trollbullet, Direction.Right));
+            Trolls.Add(new Troll(Content.Load<Texture2D>("Troll"), new Vector2(9500, 0), Color.White, Trollbullet, Direction.Right));
+            Trolls.Add(new Troll(Content.Load<Texture2D>("Troll"), new Vector2(10400, 900), Color.White, Trollbullet, Direction.Right));
+            Trolls.Add(new Troll(Content.Load<Texture2D>("Troll"), new Vector2(10900, 0), Color.White, Trollbullet, Direction.Right));
             for (int i = 0; i < Trolls.Count; i++)
             {
-                Trolls[i].settimespan(TimeSpan.Zero, TimeSpan.Zero, TimeSpan.FromMilliseconds(300), TimeSpan.FromMilliseconds(100));
+                Trolls[i].Settimespan(TimeSpan.Zero, TimeSpan.Zero, TimeSpan.FromMilliseconds(300), TimeSpan.FromMilliseconds(100));
             }
 
             //pepe army
             pepe = new List<Pepe>();
             Bullet pepeBullet = new Bullet(Content.Load<Texture2D>("TEARBULLET"), new Vector2(0, 0), Color.White, new Vector2(-10, 0), Direction.Left);
             Texture2D pepeimage = Content.Load<Texture2D>("pepeFOR REALS");
-            pepe.Add(new Pepe(pepeimage, new Vector2(12318, 97), Color.White, pepeBullet));
-            pepe.Add(new Pepe(pepeimage, new Vector2(12571, 355), Color.White, pepeBullet));
-            pepe.Add(new Pepe(pepeimage, new Vector2(12855, 249), Color.White, pepeBullet));
-            pepe.Add(new Pepe(pepeimage, new Vector2(13323, 259), Color.White, pepeBullet));
-            pepe.Add(new Pepe(pepeimage, new Vector2(13608, 199), Color.White, pepeBullet));
-            pepe.Add(new Pepe(pepeimage, new Vector2(14015, 258), Color.White, pepeBullet));
-            pepe.Add(new Pepe(pepeimage, new Vector2(14515, 131), Color.White, pepeBullet));
-            pepe.Add(new Pepe(pepeimage, new Vector2(15012, 47), Color.White, pepeBullet));
-            pepe.Add(new Pepe(pepeimage, new Vector2(15413, 247), Color.White, pepeBullet));
-
+            pepe.Add(new Pepe(pepeimage, new Vector2(12318, 97), Color.White, pepeBullet, Direction.Right));
+            pepe.Add(new Pepe(pepeimage, new Vector2(12571, 355), Color.White, pepeBullet, Direction.Right));
+            pepe.Add(new Pepe(pepeimage, new Vector2(12855, 249), Color.White, pepeBullet, Direction.Right));
+            pepe.Add(new Pepe(pepeimage, new Vector2(13323, 259), Color.White, pepeBullet, Direction.Right));
+            pepe.Add(new Pepe(pepeimage, new Vector2(13608, 199), Color.White, pepeBullet, Direction.Right));
+            pepe.Add(new Pepe(pepeimage, new Vector2(14015, 258), Color.White, pepeBullet, Direction.Right));
+            pepe.Add(new Pepe(pepeimage, new Vector2(14515, 131), Color.White, pepeBullet, Direction.Right));
+            pepe.Add(new Pepe(pepeimage, new Vector2(15012, 47), Color.White, pepeBullet, Direction.Right));
+            pepe.Add(new Pepe(pepeimage, new Vector2(15413, 247), Color.White, pepeBullet, Direction.Right));
+            for (int i = 0; i < pepe.Count; i++)
+            {
+                pepe[i].Settimespan(TimeSpan.Zero, TimeSpan.Zero, TimeSpan.FromSeconds(2), TimeSpan.FromSeconds(1));
+            }
             //Gameover
             Gameover = new Sprite(Content.Load<Texture2D>("Game Over Screen"), new Vector2(0), Color.White);
 
@@ -449,7 +452,7 @@ namespace FirstTryScrolling
             {
                 GameStopped = true;
                 HowtoLockPick = true;
-                
+
             }
 
             if (HowtoLockPick == true && ks.IsKeyDown(Keys.C))
@@ -565,10 +568,8 @@ namespace FirstTryScrolling
             {
                 if (ks.IsKeyDown(Keys.C) && lastks.IsKeyUp(Keys.C) && CastlebitStart == true)
                 {
-
                     SMSG = false;
                     BMSG = true;
-
                 }
                 if (ks.IsKeyDown(Keys.C) && lastks.IsKeyDown(Keys.C) && BMSG == true)
                 {
@@ -582,7 +583,8 @@ namespace FirstTryScrolling
                     HowtoLockPick = false;
                     GameStopped = false;
                     killslides2 = true;
-                    //Gateforgifted.Hitbox.Y -= 9000;       //Need a better way of walking through a gate
+                    Gateforgifted.Position.Y -= 9000;       
+                    //Need a better way of walking through a gate
                 }
             }
 
@@ -605,7 +607,7 @@ namespace FirstTryScrolling
                 //Update123
 
                 //CastlebitStart = true;
-                
+
                 //Trolls take damage from player
                 if (Trumpslides == false)
                 {
@@ -640,7 +642,7 @@ namespace FirstTryScrolling
                         }
                         else if (PlayerBullets[i].Hitbox.Intersects(Trolls[f].Hitbox))
                         {
-                            Trolls[f].Health -= 7;
+                            Trolls[f]._Health -= 7;
                             Trolls[f].hit = true;
                             PlayerBullets.RemoveAt(i);
 
@@ -653,8 +655,8 @@ namespace FirstTryScrolling
                         //PEPE UPDATE
                         pepe[i].Update(gameTime);
                         //pepe can die now
-                        if (pepe[i].Health <= 0)
-                        {
+                        if (pepe[i]._Health <= 0)
+                        { 
                             pepe.Remove(pepe[i]);
                             i--;
                         }
@@ -663,13 +665,13 @@ namespace FirstTryScrolling
                     for (int e = 0; e < Trolls.Count; e++)
                     {
 
-                        for (int j = 0; j < Trolls[e].Bullets.Count; j++)
+                        for (int j = 0; j < Trolls[e]._Bullets.Count; j++)
                         {
-                            if (Trolls[e].Bullets[j].Hitbox.Intersects(player.Hitbox))
+                            if (Trolls[e]._Bullets[j].Hitbox.Intersects(player.Hitbox))
                             {
                                 player.Health -= 8;
                                 player.Color = Color.Red;
-                                Trolls[e].Bullets.Remove(Trolls[e].Bullets[j]);
+                                Trolls[e]._Bullets.Remove(Trolls[e]._Bullets[j]);
                                 activeTimer = TimeSpan.Zero;
                                 j--;
                             }
@@ -683,7 +685,7 @@ namespace FirstTryScrolling
                 // trolls can die now
                 for (int i = 0; i < Trolls.Count; i++)
                 {
-                    if (Trolls[i].Health <= 0)
+                    if (Trolls[i]._Health <= 0)
                     {
                         Trolls.Remove(Trolls[i]);
                         i--;
@@ -718,7 +720,7 @@ namespace FirstTryScrolling
                         }
                         else if (PlayerBullets[i].Hitbox.Intersects(pepe[f].Hitbox))
                         {
-                            pepe[f].Health -= 7;
+                            pepe[f]._Health -= 7;
                             pepe[f].hit = true;
                             PlayerBullets.Remove(PlayerBullets[i]);
 
@@ -733,13 +735,13 @@ namespace FirstTryScrolling
                 for (int e = 0; e < pepe.Count; e++)
                 {
 
-                    for (int j = 0; j < pepe[e].Bullets.Count; j++)
+                    for (int j = 0; j < pepe[e]._Bullets.Count; j++)
                     {
-                        if (pepe[e].Bullets[j].Hitbox.Intersects(player.Hitbox))
+                        if (pepe[e]._Bullets[j].Hitbox.Intersects(player.Hitbox))
                         {
                             player.Health -= 8;
                             player.Color = Color.Red;
-                            pepe[e].Bullets.Remove(pepe[e].Bullets[j]);
+                            pepe[e]._Bullets.Remove(pepe[e]._Bullets[j]);
                             activeTimer = TimeSpan.Zero;
                             j--;
                         }
@@ -764,13 +766,13 @@ namespace FirstTryScrolling
                 for (int e = 0; e < pepe.Count; e++)
                 {
 
-                    for (int j = 0; j < pepe[e].Bullets.Count; j++)
+                    for (int j = 0; j < pepe[e]._Bullets.Count; j++)
                     {
-                        if (pepe[e].Bullets[j].Hitbox.Intersects(player.Hitbox))
+                        if (pepe[e]._Bullets[j].Hitbox.Intersects(player.Hitbox))
                         {
                             player.Health -= 8;
                             player.Color = Color.Red;
-                            pepe[e].Bullets.Remove(pepe[e].Bullets[j]);
+                            pepe[e]._Bullets.Remove(pepe[e]._Bullets[j]);
 
                             activeTimer = TimeSpan.Zero;
                             j--;
@@ -786,7 +788,7 @@ namespace FirstTryScrolling
 
 
                 //next thing
-                
+
 
 
 
@@ -1054,9 +1056,9 @@ namespace FirstTryScrolling
                             for (int i = 0; i < Trolls.Count; i++)
                             {
                                 Trolls[i].Position.X -= 10;
-                                for (int e = 0; e < Trolls[i].Bullets.Count; e++)
+                                for (int e = 0; e < Trolls[i]._Bullets.Count; e++)
                                 {
-                                    Trolls[i].Bullets[e].Position.X -= 10;
+                                    Trolls[i]._Bullets[e].Position.X -= 10;
                                 }
                             }
                             for (int i = 0; i < Bullet.Count; i++)
@@ -1130,10 +1132,10 @@ namespace FirstTryScrolling
                                 for (int i = 0; i < Trolls.Count; i++)
                                 {
                                     Trolls[i].Position.X += 10;
-                                   
-                                    for (int e = 0; e < Trolls[i].Bullets.Count; e++)
+
+                                    for (int e = 0; e < Trolls[i]._Bullets.Count; e++)
                                     {
-                                        Trolls[i].Bullets[e].Position.X += 10;
+                                        Trolls[i]._Bullets[e].Position.X += 10;
                                     }
 
                                 }
@@ -1244,13 +1246,6 @@ namespace FirstTryScrolling
             {
                 Trolls[i].Draw(spriteBatch, font);
             }
-
-
-            for (int i = 0; i < Trolls.Count; i++)
-            {
-                Trolls[i].Draw(spriteBatch, font);
-            }
-
             JetPackPowerUp.Draw(spriteBatch);
 
             for (int i = 0; i < pepe.Count; i++)

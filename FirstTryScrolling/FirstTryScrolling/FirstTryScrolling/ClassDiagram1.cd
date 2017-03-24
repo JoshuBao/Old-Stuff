@@ -43,7 +43,7 @@
       <FileName>Pepe.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="FirstTryScrolling.Player">
+  <Class Name="FirstTryScrolling.Player" Collapsed="true">
     <Position X="10" Y="1.75" Width="1.75" />
     <TypeIdentifier>
       <HashCode>CAQACAADAAAgAwAAAKAAAAAAAAIAAEEAQAEAAgAAAAQ=</HashCode>
@@ -69,6 +69,13 @@
     <TypeIdentifier>
       <HashCode>AAQAAAAAAAAAAgAAAACAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Troll.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FirstTryScrolling.Enemies" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAABAAgBAAAAEAIAAAAEAFAAAAAAIAAAAAAA=</HashCode>
+      <FileName>Enemies.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Enum Name="FirstTryScrolling.Direction">
