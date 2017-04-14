@@ -31,6 +31,7 @@ namespace FirstTryScrolling
 
         bool gateShow = false;
 
+
         Sprite backblack;
 
         Sprite Back1;
@@ -198,14 +199,14 @@ namespace FirstTryScrolling
             player = new Player(Content.Load<Texture2D>("BLOB"), new Vector2(350, 400), Color.White, potadoge);
             //sprite stuffs
             //MOUSEIMG
-            mouse = new Sprite(Content.Load<Texture2D>("Megaboss"), new Vector2(16666, 290), Color.White);
+            mouse = new Sprite(Content.Load<Texture2D>("dot"), new Vector2(16666, 290), Color.White);
             //GREBY and mashed potatoes
             GREYB = new Sprite(Content.Load<Texture2D>("NOTACULT"), new Vector2(17732, 18), Color.White);
 
             //mer fire :>
             Bullet DerFire = new Bullet(Content.Load<Texture2D>("daFire"), new Vector2(-10, -10), Color.White, new Vector2(20, 20), Direction.Right);
             //first boss eva fam 4.1savage
-            rrp = new MegaBoss(Content.Load<Texture2D>("Megaboss"), new Vector2(17643, 10), Color.White, DerFire);
+            rrp = new MegaBoss(Content.Load<Texture2D>("Megaboss"), new Vector2(17643, 10), Color.White, DerFire, Direction.Right);
 
 
             //msges i!
@@ -554,39 +555,47 @@ namespace FirstTryScrolling
                     GZm8 = true;
                 }
             }
+            if (GZm8 == true)
+            {
+                LockPickStart = false;
+                HowtoLockPick = false;
+                GameStopped = false;
+                killslides2 = false;
+                Gateforgifted.Position.Y -= 9000;
+                //Need a better way of walking through a gate
+            }
             if (player.Hitbox.Intersects(GREYB.Hitbox))
             {
                 GameStopped = true;
                 LOLiggy = false;
                 SMSG = true;
                 CastlebitStart = true;
-                GameStopped = true;
+
                 GREYB.Position.Y += 9000;   //Hmmm.. maybe think of a better method of "getting rid of it"
 
             }
             if (killslides2 == false)
             {
-                if (ks.IsKeyDown(Keys.C) && lastks.IsKeyUp(Keys.C) && CastlebitStart == true)
+                if (ks.IsKeyDown(Keys.C) && lastks.IsKeyUp(Keys.C) && BMSG == false && CastlebitStart == true)
                 {
                     SMSG = false;
                     BMSG = true;
                 }
-                if (ks.IsKeyDown(Keys.C) && lastks.IsKeyDown(Keys.C) && BMSG == true)
-                {
+
+
+                else if (ks.IsKeyDown(Keys.C) && lastks.IsKeyUp(Keys.C) && BMSG == true && killslides2 == false)
+               {
                     SMSG = false;
                     BMSG = false;
-                    GameStopped = false;
-                }
-                if (GZm8 == true)
-                {
-                    LockPickStart = false;
-                    HowtoLockPick = false;
-                    GameStopped = false;
+                    GZm8 = false;
                     killslides2 = true;
-                    Gateforgifted.Position.Y -= 9000;       
-                    //Need a better way of walking through a gate
+                    GameStopped = false;
                 }
+
+
+
             }
+
 
             //if (ks.IsKeyDown(Keys.C) && lastks.IsKeyUp(Keys.C) && Doorslides2 == true)
             //{
@@ -656,7 +665,7 @@ namespace FirstTryScrolling
                         pepe[i].Update(gameTime);
                         //pepe can die now
                         if (pepe[i]._Health <= 0)
-                        { 
+                        {
                             pepe.Remove(pepe[i]);
                             i--;
                         }
@@ -783,15 +792,6 @@ namespace FirstTryScrolling
                         }
                     }
                 }
-
-                //idk tbh :> :> :> >:  >: >: >: >: > :>: :  :> : >: > >: > >: >:> >: >: : >: >: >:>:>:>;L: :l ;l ;l ;l ;l ;:L :l :l
-
-
-                //next thing
-
-
-
-
                 //Condition made for flying
                 if (Trumpjumpcount)
                 {
@@ -802,9 +802,6 @@ namespace FirstTryScrolling
                 // lastks = Keyboard.GetState();
 
                 player.Update();
-
-
-
                 lightning.Position.Y = player.Position.Y - 460;
 
                 if (ks.IsKeyDown(Keys.Up) && lastks.IsKeyUp(Keys.Up))
@@ -1257,16 +1254,11 @@ namespace FirstTryScrolling
                 HealthKit[i].Draw(spriteBatch);
             }
             Door.Draw(spriteBatch);
-
+            
             if (CastlebitStart == true)
-            {
+            {               
                 backblack.Draw(spriteBatch);
-
-
-            }
-            for (int i = 0; i < PlayerBullets.Count; i++)
-            {
-                PlayerBullets[i].Draw(spriteBatch);
+                rrp.Draw(spriteBatch);
             }
             player.Draw(spriteBatch, font);
             if (doorslides == true)
@@ -1286,10 +1278,7 @@ namespace FirstTryScrolling
                 Gateforgifted.Draw(spriteBatch);
                 RightSign.Draw(spriteBatch);
             }
-            if (CastlebitStart == true)
-            {
-                rrp.Draw(spriteBatch);
-            }
+
             if (HowtoLockPick == true)
             {
                 preLockMsg.Draw(spriteBatch);
@@ -1310,6 +1299,11 @@ namespace FirstTryScrolling
                 Block5.Draw(spriteBatch);
                 bp.Draw(spriteBatch);
             }
+
+            if (LOLiggy == true)
+            {
+                GREYB.Draw(spriteBatch);
+            }
             if (SMSG == true)
             {
                 Megabossmsg.Draw(spriteBatch);
@@ -1318,12 +1312,6 @@ namespace FirstTryScrolling
             {
                 Blobmsg.Draw(spriteBatch);
             }
-            if (LOLiggy == true)
-            {
-                GREYB.Draw(spriteBatch);
-
-            }
-
             mouse.Draw(spriteBatch);
             for (int i = 0; i < Bullet.Count; i++)
             {

@@ -7,19 +7,10 @@ using Microsoft.Xna.Framework;
 
 namespace FirstTryScrolling
 {
-    class MegaBoss : Sprite
+    class MegaBoss : Enemies
     {
-        TimeSpan _delayControl;
-        TimeSpan _activeTimer;
-        TimeSpan _damageTimer;
-        TimeSpan _bulletDelay;
-        public bool hit = false;
-        public List<Bullet> Bullets;
-        public Bullet _bullet;
-        public Direction direction;
-
-        public MegaBoss(Texture2D image, Vector2 position, Color color, Bullet bullet)
-            : base(image, position, color)
+        public MegaBoss(Texture2D image, Vector2 position, Color color, Bullet bullet, Direction direction)
+            : base(image, position, color, bullet, direction)
         {
             _activeTimer = new TimeSpan(0);
             _damageTimer = new TimeSpan(0, 0, 0, 1);
@@ -28,7 +19,7 @@ namespace FirstTryScrolling
 
 
             _bullet = bullet;
-            Bullets = new List<Bullet>();
+            
         }
 
         public void Update(GameTime gameTime, Player player)
@@ -39,12 +30,12 @@ namespace FirstTryScrolling
             {
                 _delayControl = TimeSpan.Zero;
                 Vector2 bulletSpawn = new Vector2(Position.X + (Image.Width - _bullet.Image.Width) / 2, Position.Y);
-                Bullet boom = new Bullet(_bullet.Image, bulletSpawn, _bullet.Color, _bullet._speed, direction);
+                Bullet boom = new Bullet(_bullet.Image, bulletSpawn, _bullet.Color, _bullet._speed, Direction.Right);
                 boom.Target(player.Position);
-                Bullets.Add(boom);
+                _Bullets.Add(boom);
                 //where we shoot a bullet
             }
-            foreach (Bullet bullet in Bullets)
+            foreach (Bullet bullet in _Bullets)
             {
                 bullet.Update();
             }
@@ -61,16 +52,16 @@ namespace FirstTryScrolling
             {
                 Color = Color.White;
             }
-            for (int i = 0; i < Bullets.Count; i++)
+            for (int i = 0; i < _Bullets.Count; i++)
             {
-                if (Bullets[i].Position.X <= 0)
+                if (_Bullets[i].Position.X <= 0)
                 {
-                    Bullets.Remove(Bullets[i]);
+                   _Bullets.Remove(_Bullets[i]);
                     i--;
                 }
-                else if (Bullets[i].Position.X >= 900)
+                else if (_Bullets[i].Position.X >= 900)
                 {
-                    Bullets.Remove(Bullets[i]);
+                    _Bullets.Remove(_Bullets[i]);
                     i--;
                 }
             }

@@ -451,6 +451,15 @@
       <Output>C:\Users\Joshua Programming\Documents\John-Cena\FirstTryScrolling\FirstTryScrolling\FirstTryScrolling\bin\x86\Debug\Content\MOUSE.xnb</Output>
       <Time>2016-06-30T16:43:48.8157214-07:00</Time>
     </Item>
+    <Item>
+      <Source>dot.png</Source>
+      <Name>dot</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Joshua Programming\Documents\John-Cena\FirstTryScrolling\FirstTryScrolling\FirstTryScrolling\bin\x86\Debug\Content\dot.xnb</Output>
+      <Time>2017-04-13T18:34:27.3834169-07:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
