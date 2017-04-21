@@ -30,7 +30,7 @@ namespace FirstTryScrolling
 
         public virtual void Draw(SpriteBatch spriteBatch)
         {
-            //spriteBatch.Draw(Game1.pixel, hitbox, Color.Blue);
+            //spriteBatch.Draw(Game1.pixel, Hitbox, Color.Blue);
             spriteBatch.Draw(Image, Position, Color);
             
         }

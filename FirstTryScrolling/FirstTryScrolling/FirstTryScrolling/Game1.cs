@@ -207,7 +207,7 @@ namespace FirstTryScrolling
             Bullet DerFire = new Bullet(Content.Load<Texture2D>("daFire"), new Vector2(-10, -10), Color.White, new Vector2(20, 20), Direction.Right);
             //first boss eva fam 4.1savage
             rrp = new MegaBoss(Content.Load<Texture2D>("Megaboss"), new Vector2(17643, 10), Color.White, DerFire, Direction.Right);
-
+            rrp.Settimespan(TimeSpan.Zero, TimeSpan.Zero, TimeSpan.FromSeconds(1), TimeSpan.FromSeconds(1));
 
             //msges i!
 
@@ -584,7 +584,7 @@ namespace FirstTryScrolling
 
 
                 else if (ks.IsKeyDown(Keys.C) && lastks.IsKeyUp(Keys.C) && BMSG == true && killslides2 == false)
-               {
+                {
                     SMSG = false;
                     BMSG = false;
                     GZm8 = false;
@@ -614,7 +614,7 @@ namespace FirstTryScrolling
                     Bullet[i].Update();
                 }
                 //Update123
-
+                
                 //CastlebitStart = true;
 
                 //Trolls take damage from player
@@ -971,6 +971,12 @@ namespace FirstTryScrolling
                 }
                 if (CastlebitStart == true)
                 {
+                    rrp.Update(gameTime, player, GraphicsDevice);
+                    if (player._Bullet.Hitbox.Intersects(rrp.Hitbox))
+                    {
+                        rrp.hit = true;
+                    }
+
                     if (ks.IsKeyDown(Keys.Space) && lastks.IsKeyUp(Keys.Space))
                     {
                         if (player.effect == SpriteEffects.None)
@@ -1254,13 +1260,17 @@ namespace FirstTryScrolling
                 HealthKit[i].Draw(spriteBatch);
             }
             Door.Draw(spriteBatch);
-            
+
             if (CastlebitStart == true)
-            {               
+            {
                 backblack.Draw(spriteBatch);
-                rrp.Draw(spriteBatch);
+                rrp.Draw(spriteBatch, font);
             }
             player.Draw(spriteBatch, font);
+            for (int i = 0; i < PlayerBullets.Count; i++)
+            {
+                PlayerBullets[i].Draw(spriteBatch);
+            }
             if (doorslides == true)
             {
                 Doormsg.Draw(spriteBatch);

@@ -80,6 +80,7 @@ namespace FirstTryScrolling
             //spriteBatch.Draw(Game1.pixel, hitbox, Color.Blue);
             spriteBatch.Draw(Image, Position, null, Color, 0f, Vector2.Zero, 1f, effect, 0);
             spriteBatch.DrawString(f, ("Health:" + Health + "\n Lives:" + lives), new Vector2(Position.X + (Image.Width / 4) - 12, Position.Y - 49), Color.Black);
+          
         }
     }
 }
