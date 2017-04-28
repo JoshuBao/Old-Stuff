@@ -207,7 +207,7 @@ namespace FirstTryScrolling
             Bullet DerFire = new Bullet(Content.Load<Texture2D>("daFire"), new Vector2(-10, -10), Color.White, new Vector2(20, 20), Direction.Right);
             //first boss eva fam 4.1savage
             rrp = new MegaBoss(Content.Load<Texture2D>("Megaboss"), new Vector2(17643, 10), Color.White, DerFire, Direction.Right);
-            rrp.Settimespan(TimeSpan.Zero, TimeSpan.Zero, TimeSpan.FromSeconds(1), TimeSpan.FromSeconds(1));
+            //rrp.Settimespan(TimeSpan.Zero, TimeSpan.Zero, TimeSpan.FromSeconds(6), TimeSpan.FromSeconds(6));
 
             //msges i!
 
@@ -613,8 +613,41 @@ namespace FirstTryScrolling
                 {
                     Bullet[i].Update();
                 }
+                // MegaBoss getting hit and hit
+                for (int i = 0; i < rrp._Bullets.Count; i++)
+                {
+                    if (rrp._Bullets[i].Hitbox.Intersects(player.Hitbox))
+                    {
+                       
+                            player.Health -= 8;
+                            player.Color = Color.Red;
+                            rrp._Bullets.RemoveAt(i);
+                            activeTimer = TimeSpan.Zero;                                                                   
+                    }
+                    else if (damageTimer < activeTimer)
+                    {
+                        player.Color = Color.White;
+                    }
+
+
+                }
+                for (int i = 0; i < PlayerBullets.Count; i++)
+                {
+                    if (PlayerBullets[i].Hitbox.Intersects(rrp.Hitbox))
+                    {
+                        rrp.hit = true;
+                        rrp._Health -= 5;
+                        PlayerBullets.RemoveAt(i);
+                    }
+                }
+
+               if (rrp._Health <= 0)
+                {
+                 
+                    //firstbossfinish
+                }
                 //Update123
-                
+
                 //CastlebitStart = true;
 
                 //Trolls take damage from player

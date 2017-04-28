@@ -22,7 +22,7 @@ namespace FirstTryScrolling
             _Health = 40;
 
         }
-
+        
         public virtual void Update(GameTime gameTime)
         {
             _delayControl += gameTime.ElapsedGameTime;

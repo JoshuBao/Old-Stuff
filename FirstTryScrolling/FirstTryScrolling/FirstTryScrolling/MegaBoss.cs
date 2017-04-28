@@ -10,7 +10,7 @@ namespace FirstTryScrolling
     class MegaBoss : Enemies
     {
         TimeSpan _activeTimer2 = new TimeSpan(0);
-        TimeSpan _SwitchMove = new TimeSpan(0, 0, 20);
+        TimeSpan _SwitchMove = new TimeSpan(0, 0, 7);
         Random numgen = new Random();
         
         bool Blink = false;
@@ -18,26 +18,24 @@ namespace FirstTryScrolling
             : base(image, position, color, bullet, direction)
         {
             _activeTimer = new TimeSpan(0);
-            _damageTimer = new TimeSpan(0, 0, 0, 1);
+            _damageTimer = new TimeSpan(0, 0, 0,6);
             _delayControl = TimeSpan.Zero;
-            _bulletDelay = new TimeSpan(0, 0, 0, 1);
+            _bulletDelay = new TimeSpan(0, 0, 0,6);
             
 
             _bullet = bullet;
+            _Health = 100;
 
         }
-
-
-
-
-
+        
         public void Update(GameTime gameTime, Player player,GraphicsDevice g)
         {
             _activeTimer2 += gameTime.ElapsedGameTime;
            
             if (_activeTimer2 > _SwitchMove)
             {
-                bool Blink = true;
+               Blink  = true;
+                _activeTimer2 = TimeSpan.Zero;
             }
             else
             {
@@ -53,7 +51,7 @@ namespace FirstTryScrolling
             {
                 Color = Color.Red;
                 _activeTimer = TimeSpan.Zero;
-
+                hit = false;
             }
             else if (_damageTimer < _activeTimer)
             {
@@ -64,11 +62,13 @@ namespace FirstTryScrolling
                 _delayControl += gameTime.ElapsedGameTime;
                 _activeTimer += gameTime.ElapsedGameTime;
                 if (_delayControl > _bulletDelay)
-                { 
+                {
+                    _bullet._speed = new Vector2(5);
                     _delayControl = TimeSpan.Zero;
                     Vector2 bulletSpawn = new Vector2(Position.X + (Image.Width + _bullet.Image.Width) / 2, Position.Y);
                     Bullet boom = new Bullet(_bullet.Image, bulletSpawn, _bullet.Color, _bullet._speed, Direction.Right);
-                    boom.Target(new Vector2(player.Position.X + (Image.Width + _bullet.Image.Width) / 2, player.Position.Y));
+                    boom.Target(new Vector2(player.Position.X + (player.Image.Width + _bullet.Image.Width) / 2, player.Position.Y));
+                    // + (player.Image.Width + _bullet.Image.Width) / 2
                     _Bullets.Add(boom);
                     //where we shoot a bullet
                 }
