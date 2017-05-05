@@ -18,7 +18,7 @@ namespace FirstTryScrolling
             : base(image, position, color, bullet, direction)
         {
             _activeTimer = new TimeSpan(0);
-            _damageTimer = new TimeSpan(0, 0, 0,6);
+            _damageTimer = new TimeSpan(0, 0, 0,0,500);
             _delayControl = TimeSpan.Zero;
             _bulletDelay = new TimeSpan(0, 0, 0,6);
             

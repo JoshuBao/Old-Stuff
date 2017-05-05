@@ -49,3 +49,5 @@ Content\MegaMsg.xnb
 Content\BlobMsg.xnb
 Content\MOUSE.xnb
 Content\dot.xnb
+Content\TriggeredBoss.xnb
+Content\TBmsg.xnb

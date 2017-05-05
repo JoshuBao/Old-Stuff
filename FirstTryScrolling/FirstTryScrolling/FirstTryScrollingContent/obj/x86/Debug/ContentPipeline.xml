@@ -422,7 +422,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Joshua Programming\Documents\John-Cena\FirstTryScrolling\FirstTryScrolling\FirstTryScrolling\bin\x86\Debug\Content\daFire.xnb</Output>
-      <Time>2017-04-27T19:13:16.9807445-07:00</Time>
+      <Time>2017-05-04T18:04:48.328806-07:00</Time>
     </Item>
     <Item>
       <Source>MegaMsg.png</Source>
@@ -459,6 +459,24 @@
       <Options>None</Options>
       <Output>C:\Users\Joshua Programming\Documents\John-Cena\FirstTryScrolling\FirstTryScrolling\FirstTryScrolling\bin\x86\Debug\Content\dot.xnb</Output>
       <Time>2017-04-13T18:34:27.3834169-07:00</Time>
+    </Item>
+    <Item>
+      <Source>TriggeredBoss.png</Source>
+      <Name>TriggeredBoss</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Joshua Programming\Documents\John-Cena\FirstTryScrolling\FirstTryScrolling\FirstTryScrolling\bin\x86\Debug\Content\TriggeredBoss.xnb</Output>
+      <Time>2017-05-04T18:24:59.3243685-07:00</Time>
+    </Item>
+    <Item>
+      <Source>TBmsg.png</Source>
+      <Name>TBmsg</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Joshua Programming\Documents\John-Cena\FirstTryScrolling\FirstTryScrolling\FirstTryScrolling\bin\x86\Debug\Content\TBmsg.xnb</Output>
+      <Time>2017-05-04T18:48:51.2851286-07:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

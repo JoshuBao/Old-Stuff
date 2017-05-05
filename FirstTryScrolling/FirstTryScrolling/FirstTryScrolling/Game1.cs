@@ -32,6 +32,9 @@ namespace FirstTryScrolling
         bool gateShow = false;
 
 
+        bool DubbleHead = false;
+
+
         Sprite backblack;
 
         Sprite Back1;
@@ -111,7 +114,7 @@ namespace FirstTryScrolling
         bool SMSG = false;
         bool BMSG = false;
 
-
+        Sprite Tbmsg;
 
         Texture2D WpolImg;
         Lightning lightning;
@@ -122,9 +125,10 @@ namespace FirstTryScrolling
         //sprite thingy
         Sprite RightSign;
 
-
-
+        MegaBoss rrp2;
         //pepe Stuff  
+
+
 
         List<Pepe> pepe;
 
@@ -132,7 +136,7 @@ namespace FirstTryScrolling
 
         bool Trumpslides = false;
 
-
+        bool showtbmsg = false;
         Sprite JetPackPowerUp;
 
         List<Sprite> WPol;
@@ -205,8 +209,13 @@ namespace FirstTryScrolling
 
             //mer fire :>
             Bullet DerFire = new Bullet(Content.Load<Texture2D>("daFire"), new Vector2(-10, -10), Color.White, new Vector2(20, 20), Direction.Right);
-            //first boss eva fam 4.1savage
+            //first boss 
+
+
             rrp = new MegaBoss(Content.Load<Texture2D>("Megaboss"), new Vector2(17643, 10), Color.White, DerFire, Direction.Right);
+
+            rrp2 = new MegaBoss(Content.Load<Texture2D>("Triggeredboss"), new Vector2(17643, 10), Color.White, DerFire, Direction.Right);
+            rrp2._Health = 50;
             //rrp.Settimespan(TimeSpan.Zero, TimeSpan.Zero, TimeSpan.FromSeconds(6), TimeSpan.FromSeconds(6));
 
             //msges i!
@@ -226,7 +235,7 @@ namespace FirstTryScrolling
             backblack = new Sprite(Content.Load<Texture2D>("Building Back"), Vector2.Zero, Color.White);
 
             //grey stuff :(
-
+            Tbmsg = new Sprite(Content.Load<Texture2D>("TBmsg"), Vector2.Zero, Color.White);
 
             Block1 = new Sprite(Content.Load<Texture2D>("GreenBlock"), new Vector2(205, 217), Color.White);
             Block2 = new Sprite(Content.Load<Texture2D>("RedBlock"), new Vector2(304, 270), Color.White);
@@ -596,7 +605,11 @@ namespace FirstTryScrolling
 
             }
 
-
+            if (ks.IsKeyDown(Keys.C) && lastks.IsKeyUp(Keys.C) && showtbmsg == true)
+            {
+                GameStopped = false;
+                showtbmsg = false;
+            }
             //if (ks.IsKeyDown(Keys.C) && lastks.IsKeyUp(Keys.C) && Doorslides2 == true)
             //{
             //    Doorslides2 = false;
@@ -618,11 +631,11 @@ namespace FirstTryScrolling
                 {
                     if (rrp._Bullets[i].Hitbox.Intersects(player.Hitbox))
                     {
-                       
-                            player.Health -= 8;
-                            player.Color = Color.Red;
-                            rrp._Bullets.RemoveAt(i);
-                            activeTimer = TimeSpan.Zero;                                                                   
+
+                        player.Health -= 8;
+                        player.Color = Color.Red;
+                        rrp._Bullets.RemoveAt(i);
+                        activeTimer = TimeSpan.Zero;
                     }
                     else if (damageTimer < activeTimer)
                     {
@@ -636,16 +649,25 @@ namespace FirstTryScrolling
                     if (PlayerBullets[i].Hitbox.Intersects(rrp.Hitbox))
                     {
                         rrp.hit = true;
-                        rrp._Health -= 5;
+                        rrp._Health -= 1;
                         PlayerBullets.RemoveAt(i);
                     }
-                }
 
-               if (rrp._Health <= 0)
+                }
+         
+                if (rrp._Health == 50)
                 {
-                 
+                    DubbleHead = true;
+                    showtbmsg = true;
+                    GameStopped = true;
+                    rrp._Health--;
                     //firstbossfinish
                 }
+               if (DubbleHead)
+                {
+                    rrp2.Update(gameTime, player, GraphicsDevice);
+                }
+
                 //Update123
 
                 //CastlebitStart = true;
@@ -1005,6 +1027,7 @@ namespace FirstTryScrolling
                 if (CastlebitStart == true)
                 {
                     rrp.Update(gameTime, player, GraphicsDevice);
+                   
                     if (player._Bullet.Hitbox.Intersects(rrp.Hitbox))
                     {
                         rrp.hit = true;
@@ -1297,7 +1320,16 @@ namespace FirstTryScrolling
             if (CastlebitStart == true)
             {
                 backblack.Draw(spriteBatch);
-                rrp.Draw(spriteBatch, font);
+                if (DubbleHead == false)
+                {
+                    rrp.Draw(spriteBatch, font);
+                }
+                
+                if (DubbleHead == true)
+                {
+                    rrp2.Draw(spriteBatch);
+                }
+                
             }
             player.Draw(spriteBatch, font);
             for (int i = 0; i < PlayerBullets.Count; i++)
@@ -1361,7 +1393,10 @@ namespace FirstTryScrolling
                 Bullet[i].Draw(spriteBatch);
             }
             spriteBatch.DrawString(font, "X:" + (ms.X + mouseX) + "Y:" + ms.Y, new Vector2(0, 0), Color.Black);
-
+            if (showtbmsg == true)
+            {
+                Tbmsg.Draw(spriteBatch);
+            }
             if (GameStopped == true && player.lives == 0)
             {
                 Gameover.Draw(spriteBatch);
