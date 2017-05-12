@@ -10,7 +10,7 @@ namespace FirstTryScrolling
     class MegaBoss : Enemies
     {
         TimeSpan _activeTimer2 = new TimeSpan(0);
-        TimeSpan _SwitchMove = new TimeSpan(0, 0, 7);
+        public TimeSpan _SwitchMove = new TimeSpan(0, 0, 7);
         Random numgen = new Random();
         
         bool Blink = false;

@@ -49,6 +49,7 @@ namespace FirstTryScrolling
         bool LOLiggy = true;
         //sprite :> fight me irl and ill kill u :) :D :D :D: D:D :D::D:D :D:D:: :D::D:D;
 
+
         Sprite GREYB;
 
         //doorrs
@@ -124,8 +125,10 @@ namespace FirstTryScrolling
 
         //sprite thingy
         Sprite RightSign;
-
+        //boss bit
         MegaBoss rrp2;
+        MegaBoss rrp3;
+        MegaBoss rrp4;
         //pepe Stuff  
 
 
@@ -210,13 +213,14 @@ namespace FirstTryScrolling
             //mer fire :>
             Bullet DerFire = new Bullet(Content.Load<Texture2D>("daFire"), new Vector2(-10, -10), Color.White, new Vector2(20, 20), Direction.Right);
             //first boss 
-
+            Bullet FireBall = new Bullet(Content.Load<Texture2D>("FireBallBB"), new Vector2(-10, -10), Color.White, new Vector2(20, 20), Direction.Right);
 
             rrp = new MegaBoss(Content.Load<Texture2D>("Megaboss"), new Vector2(17643, 10), Color.White, DerFire, Direction.Right);
 
-            rrp2 = new MegaBoss(Content.Load<Texture2D>("Triggeredboss"), new Vector2(17643, 10), Color.White, DerFire, Direction.Right);
+            rrp2 = new MegaBoss(Content.Load<Texture2D>("Triggeredboss"), new Vector2(17643, 10), Color.White, FireBall, Direction.Right);
             rrp2._Health = 50;
-            //rrp.Settimespan(TimeSpan.Zero, TimeSpan.Zero, TimeSpan.FromSeconds(6), TimeSpan.FromSeconds(6));
+
+            rrp2.Settimespan(TimeSpan.Zero, TimeSpan.Zero, TimeSpan.FromMilliseconds(200), TimeSpan.FromMilliseconds(300));
 
             //msges i!
 
@@ -654,7 +658,7 @@ namespace FirstTryScrolling
                     }
 
                 }
-         
+
                 if (rrp._Health == 50)
                 {
                     DubbleHead = true;
@@ -663,11 +667,37 @@ namespace FirstTryScrolling
                     rrp._Health--;
                     //firstbossfinish
                 }
-               if (DubbleHead)
+                if (DubbleHead)
                 {
+                    rrp2._SwitchMove = TimeSpan.FromMilliseconds(300);
                     rrp2.Update(gameTime, player, GraphicsDevice);
-                }
+                    for (int i = 0; i < PlayerBullets.Count; i++)
+                    {
+                        if (PlayerBullets[i].Hitbox.Intersects(rrp2.Hitbox))
+                        {
+                            rrp2.hit = true;
+                            rrp2._Health -= 1;
+                            PlayerBullets.RemoveAt(i);
+                        }
 
+                    }
+                    for (int i = 0;i < rrp2._Bullets.Count; i++)
+                    {
+                        if (rrp2._Bullets[i].Hitbox.Intersects(player.Hitbox))
+                        {
+                            rrp2._Bullets.RemoveAt(i);
+                            player.Health -= 3;
+                            activeTimer = TimeSpan.Zero;
+                            player.Color = Color.Red;
+                        }
+                        else if (activeTimer > damageTimer)
+                        {
+                            player.Color = Color.White;
+                        }
+                    }
+
+                }
+                //rrp2.Update(gameTime, player, GraphicsDevice);
                 //Update123
 
                 //CastlebitStart = true;
@@ -1026,8 +1056,10 @@ namespace FirstTryScrolling
                 }
                 if (CastlebitStart == true)
                 {
-                    rrp.Update(gameTime, player, GraphicsDevice);
-                   
+                    if (DubbleHead == false)
+                    {
+                        rrp.Update(gameTime, player, GraphicsDevice);
+                    }
                     if (player._Bullet.Hitbox.Intersects(rrp.Hitbox))
                     {
                         rrp.hit = true;
@@ -1324,12 +1356,14 @@ namespace FirstTryScrolling
                 {
                     rrp.Draw(spriteBatch, font);
                 }
-                
+
                 if (DubbleHead == true)
                 {
-                    rrp2.Draw(spriteBatch);
+                    rrp2.Draw(spriteBatch, font);
+                    backblack.Color = Color.Red;
+                    rrp2.Color = Color.Pink;
                 }
-                
+
             }
             player.Draw(spriteBatch, font);
             for (int i = 0; i < PlayerBullets.Count; i++)

@@ -478,6 +478,15 @@
       <Output>C:\Users\Joshua Programming\Documents\John-Cena\FirstTryScrolling\FirstTryScrolling\FirstTryScrolling\bin\x86\Debug\Content\TBmsg.xnb</Output>
       <Time>2017-05-04T18:48:51.2851286-07:00</Time>
     </Item>
+    <Item>
+      <Source>FireBallBB.png</Source>
+      <Name>FireBallBB</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Joshua Programming\Documents\John-Cena\FirstTryScrolling\FirstTryScrolling\FirstTryScrolling\bin\x86\Debug\Content\FireBallBB.xnb</Output>
+      <Time>2017-05-11T18:34:35.2328771-07:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
