@@ -31,6 +31,7 @@ namespace FirstTryScrolling
 
         bool gateShow = false;
 
+        bool EndGame = false;
 
         bool DubbleHead = false;
 
@@ -88,6 +89,10 @@ namespace FirstTryScrolling
         List<Sprite> HealthKit;
 
         Sprite Door;
+
+        int EndCount = 0;
+
+        List<Sprite> TheEnd;
 
         Sprite Gameover;
 
@@ -172,9 +177,7 @@ namespace FirstTryScrolling
         public static Texture2D pixel;
         //mega boss :>
         MegaBoss rrp;
-
         TimeSpan damageTimer = new TimeSpan(0, 0, 0, 0, 100);
-
         TimeSpan activeTimer = new TimeSpan(0);
 
         public Game1()
@@ -182,7 +185,6 @@ namespace FirstTryScrolling
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
         }
-
 
         protected override void Initialize()
         {
@@ -193,7 +195,6 @@ namespace FirstTryScrolling
 
             base.Initialize();
         }
-
 
         protected override void LoadContent()
         {
@@ -213,11 +214,11 @@ namespace FirstTryScrolling
             //mer fire :>
             Bullet DerFire = new Bullet(Content.Load<Texture2D>("daFire"), new Vector2(-10, -10), Color.White, new Vector2(20, 20), Direction.Right);
             //first boss 
-            Bullet FireBall = new Bullet(Content.Load<Texture2D>("FireBallBB"), new Vector2(-10, -10), Color.White, new Vector2(20, 20), Direction.Right);
+            Bullet FireBall = new Bullet(Content.Load<Texture2D>("FireBallBB"), new Vector2(-10, -10), Color.Red, new Vector2(20, 20), Direction.Right);
 
             rrp = new MegaBoss(Content.Load<Texture2D>("Megaboss"), new Vector2(17643, 10), Color.White, DerFire, Direction.Right);
 
-            rrp2 = new MegaBoss(Content.Load<Texture2D>("Triggeredboss"), new Vector2(17643, 10), Color.White, FireBall, Direction.Right);
+            rrp2 = new MegaBoss(Content.Load<Texture2D>("Triggeredboss"), new Vector2(17643, 10), Color.Red, FireBall, Direction.Right);
             rrp2._Health = 50;
 
             rrp2.Settimespan(TimeSpan.Zero, TimeSpan.Zero, TimeSpan.FromMilliseconds(200), TimeSpan.FromMilliseconds(300));
@@ -264,6 +265,24 @@ namespace FirstTryScrolling
 
             Whitepic = new Lightning(Content.Load<Texture2D>("WhitePic"), new Vector2(0), Color.White);
             lightning = new Lightning(Content.Load<Texture2D>("Lightning"), new Vector2(0, 0), Color.White);
+
+            //THE END
+
+            TheEnd = new List<Sprite>();
+
+            TheEnd.Add(new Sprite(Content.Load<Texture2D>("1"), Vector2.Zero, Color.White));
+            TheEnd.Add(new Sprite(Content.Load<Texture2D>("2"), Vector2.Zero, Color.White));
+            TheEnd.Add(new Sprite(Content.Load<Texture2D>("3"), Vector2.Zero, Color.White));
+            TheEnd.Add(new Sprite(Content.Load<Texture2D>("4"), Vector2.Zero, Color.White));
+            TheEnd.Add(new Sprite(Content.Load<Texture2D>("5"), Vector2.Zero, Color.White));
+            TheEnd.Add(new Sprite(Content.Load<Texture2D>("6"), Vector2.Zero, Color.White));
+            TheEnd.Add(new Sprite(Content.Load<Texture2D>("7"), Vector2.Zero, Color.White));
+            TheEnd.Add(new Sprite(Content.Load<Texture2D>("8"), Vector2.Zero, Color.White));
+            TheEnd.Add(new Sprite(Content.Load<Texture2D>("9"), Vector2.Zero, Color.White));
+            TheEnd.Add(new Sprite(Content.Load<Texture2D>("10"), Vector2.Zero, Color.White));
+            TheEnd.Add(new Sprite(Content.Load<Texture2D>("11"), Vector2.Zero, Color.White));
+            TheEnd.Add(new Sprite(Content.Load<Texture2D>("12"), Vector2.Zero, Color.White));
+            TheEnd.Add(new Sprite(Content.Load<Texture2D>("Game Over Screen"), Vector2.Zero, Color.White));
 
 
             Back1 = new Sprite(Content.Load<Texture2D>("TRY#"), new Vector2(0, 200), Color.White);
@@ -421,8 +440,7 @@ namespace FirstTryScrolling
         {
             // TODO: Unload any non ContentManager content here
         }
-
-
+        
         protected override void Update(GameTime gameTime)
         {
             activeTimer += gameTime.ElapsedGameTime;
@@ -434,14 +452,17 @@ namespace FirstTryScrolling
             {
                 GameStopped = !GameStopped;
             }
+            if (ks.IsKeyDown(Keys.R) && lastks.IsKeyUp(Keys.R))
+            {
+                Initialize();
+                Trumpjumpcount = false;
+            }
             if (killslides == false)
             {
-
                 if (ks.IsKeyDown(Keys.C) && lastks.IsKeyUp(Keys.C) && doorslides == true)
                 {
                     doorslides = false;
                     Doorslides2 = true;
-
                 }
                 else if (ks.IsKeyDown(Keys.C) && lastks.IsKeyUp(Keys.C) && Doorslides2 == true)
                 {
@@ -450,14 +471,12 @@ namespace FirstTryScrolling
                 }
                 else if (ks.IsKeyDown(Keys.C) && lastks.IsKeyUp(Keys.C) && Doorslides3 == true)
                 {
-
                     Doorslides3 = false;
                     Trumpslides = true;
                     killslides = true;
                     GameStopped = false;
                     gateShow = true;
                     Door.Position.X -= 140000;
-
                 }
             }
 
@@ -466,7 +485,6 @@ namespace FirstTryScrolling
             {
                 GameStopped = true;
                 HowtoLockPick = true;
-
             }
 
             if (HowtoLockPick == true && ks.IsKeyDown(Keys.C))
@@ -529,7 +547,6 @@ namespace FirstTryScrolling
                     {
                         Block5.Position.Y += 10;
                     }
-
                 }
                 else if (Rhit5 == true && GZm8 == false)
                 {
@@ -608,6 +625,23 @@ namespace FirstTryScrolling
 
 
             }
+            //the end :( rip
+            if (rrp2._Health <= 0)
+            {
+                GameStopped = true;
+                EndGame = true;
+                DubbleHead = false;
+                if (rrp2._Health <= 0)
+                {
+                    //GameStopped = true;
+                    EndGame = true;
+                     DubbleHead = false;
+                    if (ks.IsKeyDown(Keys.C) && lastks.IsKeyUp(Keys.C) && EndGame == true)
+                    {
+                        EndCount += 1;
+                    }
+                }
+            }
 
             if (ks.IsKeyDown(Keys.C) && lastks.IsKeyUp(Keys.C) && showtbmsg == true)
             {
@@ -677,6 +711,7 @@ namespace FirstTryScrolling
                         {
                             rrp2.hit = true;
                             rrp2._Health -= 1;
+                            // change to 1 ^
                             PlayerBullets.RemoveAt(i);
                         }
 
@@ -686,7 +721,8 @@ namespace FirstTryScrolling
                         if (rrp2._Bullets[i].Hitbox.Intersects(player.Hitbox))
                         {
                             rrp2._Bullets.RemoveAt(i);
-                            player.Health -= 3;
+                            player.Health -= 5;
+                            //change to 5 ^
                             activeTimer = TimeSpan.Zero;
                             player.Color = Color.Red;
                         }
@@ -696,7 +732,10 @@ namespace FirstTryScrolling
                         }
                     }
 
+
                 }
+              
+                
                 //rrp2.Update(gameTime, player, GraphicsDevice);
                 //Update123
 
@@ -784,6 +823,11 @@ namespace FirstTryScrolling
                         Trolls.Remove(Trolls[i]);
                         i--;
                     }
+                }
+                if (player.Health > 100)
+                {
+                    player.lives++;
+                    player.Health = player.Health - 100;
                 }
                 //players can die too...
                 if (player.Health <= 0)
@@ -1430,6 +1474,10 @@ namespace FirstTryScrolling
             if (showtbmsg == true)
             {
                 Tbmsg.Draw(spriteBatch);
+            }
+            if (EndGame)
+            {         
+                    TheEnd[EndCount].Draw(spriteBatch);                               
             }
             if (GameStopped == true && player.lives == 0)
             {
