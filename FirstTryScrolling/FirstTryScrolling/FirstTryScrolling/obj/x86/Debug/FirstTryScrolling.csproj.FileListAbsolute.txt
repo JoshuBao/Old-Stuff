@@ -109,3 +109,9 @@ C:\Users\Joshua Programming\Documents\John-Cena\FirstTryScrolling\FirstTryScroll
 C:\Users\Joshua Programming\Documents\John-Cena\FirstTryScrolling\FirstTryScrolling\FirstTryScrolling\bin\x86\Debug\Content\10.xnb
 C:\Users\Joshua Programming\Documents\John-Cena\FirstTryScrolling\FirstTryScrolling\FirstTryScrolling\bin\x86\Debug\Content\11.xnb
 C:\Users\Joshua Programming\Documents\John-Cena\FirstTryScrolling\FirstTryScrolling\FirstTryScrolling\bin\x86\Debug\Content\12.xnb
+C:\Users\Joshua Programming\Documents\John-Cena\FirstTryScrolling\FirstTryScrolling\FirstTryScrolling\bin\x86\Debug\Content\PlayButton.xnb
+C:\Users\Joshua Programming\Documents\John-Cena\FirstTryScrolling\FirstTryScrolling\FirstTryScrolling\bin\x86\Debug\Content\Help.xnb
+C:\Users\Joshua Programming\Documents\John-Cena\FirstTryScrolling\FirstTryScrolling\FirstTryScrolling\bin\x86\Debug\Content\Background.xnb
+C:\Users\Joshua Programming\Documents\John-Cena\FirstTryScrolling\FirstTryScrolling\FirstTryScrolling\bin\x86\Debug\Content\BackButton.xnb
+C:\Users\Joshua Programming\Documents\John-Cena\FirstTryScrolling\FirstTryScrolling\FirstTryScrolling\bin\x86\Debug\Content\Ye.xnb
+C:\Users\Joshua Programming\Documents\John-Cena\FirstTryScrolling\FirstTryScrolling\FirstTryScrolling\bin\x86\Debug\Content\HelpPage.xnb

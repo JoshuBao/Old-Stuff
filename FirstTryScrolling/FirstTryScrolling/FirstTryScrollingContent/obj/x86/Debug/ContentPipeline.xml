@@ -595,6 +595,60 @@
       <Output>C:\Users\Joshua Programming\Documents\John-Cena\FirstTryScrolling\FirstTryScrolling\FirstTryScrolling\bin\x86\Debug\Content\12.xnb</Output>
       <Time>2017-05-25T19:02:26.9834489-07:00</Time>
     </Item>
+    <Item>
+      <Source>PlayButton.png</Source>
+      <Name>PlayButton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Joshua Programming\Documents\John-Cena\FirstTryScrolling\FirstTryScrolling\FirstTryScrolling\bin\x86\Debug\Content\PlayButton.xnb</Output>
+      <Time>2017-06-15T17:05:15.5130857-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Help.png</Source>
+      <Name>Help</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Joshua Programming\Documents\John-Cena\FirstTryScrolling\FirstTryScrolling\FirstTryScrolling\bin\x86\Debug\Content\Help.xnb</Output>
+      <Time>2017-06-15T17:05:22.4484535-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Background.png</Source>
+      <Name>Background</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Joshua Programming\Documents\John-Cena\FirstTryScrolling\FirstTryScrolling\FirstTryScrolling\bin\x86\Debug\Content\Background.xnb</Output>
+      <Time>2017-06-15T17:05:24.5360148-07:00</Time>
+    </Item>
+    <Item>
+      <Source>BackButton.png</Source>
+      <Name>BackButton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Joshua Programming\Documents\John-Cena\FirstTryScrolling\FirstTryScrolling\FirstTryScrolling\bin\x86\Debug\Content\BackButton.xnb</Output>
+      <Time>2017-06-15T17:05:26.516056-07:00</Time>
+    </Item>
+    <Item>
+      <Source>Ye.png</Source>
+      <Name>Ye</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Joshua Programming\Documents\John-Cena\FirstTryScrolling\FirstTryScrolling\FirstTryScrolling\bin\x86\Debug\Content\Ye.xnb</Output>
+      <Time>2017-06-15T17:58:50.0059268-07:00</Time>
+    </Item>
+    <Item>
+      <Source>HelpPage.png</Source>
+      <Name>HelpPage</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Joshua Programming\Documents\John-Cena\FirstTryScrolling\FirstTryScrolling\FirstTryScrolling\bin\x86\Debug\Content\HelpPage.xnb</Output>
+      <Time>2017-06-15T18:16:34.3261216-07:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

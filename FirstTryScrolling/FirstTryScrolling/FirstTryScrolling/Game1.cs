@@ -35,6 +35,7 @@ namespace FirstTryScrolling
 
         bool DubbleHead = false;
 
+        bool hidemouse = false;
 
         Sprite backblack;
 
@@ -180,6 +181,17 @@ namespace FirstTryScrolling
         TimeSpan damageTimer = new TimeSpan(0, 0, 0, 0, 100);
         TimeSpan activeTimer = new TimeSpan(0);
 
+        Sprite MenuPage;
+        Sprite PlayButton;
+        Sprite HelpButton;
+        Sprite BackButton;
+        Sprite Help;
+
+        bool clickplay = false;
+        bool showMenu = true;
+        bool showHelp = false;
+
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -198,6 +210,13 @@ namespace FirstTryScrolling
 
         protected override void LoadContent()
         {
+            HelpButton = new Sprite(Content.Load<Texture2D>("Help"), new Vector2(GraphicsDevice.Viewport.Width / 2 - 344 / 2, GraphicsDevice.Viewport.Height / 2 + 10), Color.White);
+            PlayButton = new Sprite(Content.Load<Texture2D>("PlayButton"), new Vector2(GraphicsDevice.Viewport.Width / 2 - 344 / 2, GraphicsDevice.Viewport.Height / 2 - 100), Color.White);
+            MenuPage = new Sprite(Content.Load<Texture2D>("Background"), Vector2.Zero, Color.White);
+            BackButton = new Sprite(Content.Load<Texture2D>("BackButton"), new Vector2(5, GraphicsDevice.Viewport.Height - 90), Color.White);
+            Help = new Sprite(Content.Load<Texture2D>("HelpPage"), Vector2.Zero, Color.White);
+
+
 
             spriteBatch = new SpriteBatch(GraphicsDevice);
             pixel = Content.Load<Texture2D>("Thing");
@@ -207,7 +226,7 @@ namespace FirstTryScrolling
             player = new Player(Content.Load<Texture2D>("BLOB"), new Vector2(350, 400), Color.White, potadoge);
             //sprite stuffs
             //MOUSEIMG
-            mouse = new Sprite(Content.Load<Texture2D>("dot"), new Vector2(16666, 290), Color.White);
+            mouse = new Sprite(Content.Load<Texture2D>("Ye"), new Vector2(16666, 290), Color.White);
             //GREBY and mashed potatoes
             GREYB = new Sprite(Content.Load<Texture2D>("NOTACULT"), new Vector2(17732, 18), Color.White);
 
@@ -440,22 +459,50 @@ namespace FirstTryScrolling
         {
             // TODO: Unload any non ContentManager content here
         }
-        
+
         protected override void Update(GameTime gameTime)
         {
             activeTimer += gameTime.ElapsedGameTime;
 
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
-                this.Exit();
+
             ks = Keyboard.GetState();
             if (ks.IsKeyDown(Keys.P) && lastks.IsKeyUp(Keys.P))
             {
                 GameStopped = !GameStopped;
             }
+            if (showMenu)
+            {
+                GameStopped = true;
+                hidemouse = false;
+            }
+            if (mouse.Hitbox.Intersects(PlayButton.Hitbox) && ms.LeftButton == ButtonState.Pressed)
+            {
+                showMenu = false;
+                GameStopped = false;
+                hidemouse = true;
+            }
+            if (mouse.Hitbox.Intersects(HelpButton.Hitbox) && ms.LeftButton == ButtonState.Pressed)
+            {
+                showHelp = true;
+            }
+            if (mouse.Hitbox.Intersects(BackButton.Hitbox) && ms.LeftButton == ButtonState.Pressed)
+            {
+                showHelp = false;
+                showMenu = true;
+            }
+            //restart
             if (ks.IsKeyDown(Keys.R) && lastks.IsKeyUp(Keys.R))
             {
                 Initialize();
+                gateShow = false;
+                CastlebitStart = false;
+                DubbleHead = false;
+                EndGame = false;
                 Trumpjumpcount = false;
+                GameStopped = false;
+                //Gateforgifted.Position.Y -= 9000;
+                //GREYB.Position.Y -= 9000;
+                //Door.Position.X += 140000;
             }
             if (killslides == false)
             {
@@ -591,7 +638,7 @@ namespace FirstTryScrolling
                 HowtoLockPick = false;
                 GameStopped = false;
                 killslides2 = false;
-                Gateforgifted.Position.Y -= 9000;
+                Gateforgifted.Position.Y += 9000;
                 //Need a better way of walking through a gate
             }
             if (player.Hitbox.Intersects(GREYB.Hitbox))
@@ -628,14 +675,14 @@ namespace FirstTryScrolling
             //the end :( rip
             if (rrp2._Health <= 0)
             {
-                GameStopped = true;
+                //GameStopped = true;
                 EndGame = true;
                 DubbleHead = false;
                 if (rrp2._Health <= 0)
                 {
                     //GameStopped = true;
                     EndGame = true;
-                     DubbleHead = false;
+                    DubbleHead = false;
                     if (ks.IsKeyDown(Keys.C) && lastks.IsKeyUp(Keys.C) && EndGame == true)
                     {
                         EndCount += 1;
@@ -654,10 +701,13 @@ namespace FirstTryScrolling
             //    Doorslides3 = true;
 
             //}
-
+            //thetop
+            ms = Mouse.GetState();
+            mouse.Position.X = ms.X;
+            mouse.Position.Y = ms.Y;
             if (GameStopped == false)
             {
-                ms = Mouse.GetState();
+
 
                 //Player bullets are destroyed when they hit blocks
                 for (int i = 0; i < Bullet.Count; i++)
@@ -716,7 +766,7 @@ namespace FirstTryScrolling
                         }
 
                     }
-                    for (int i = 0;i < rrp2._Bullets.Count; i++)
+                    for (int i = 0; i < rrp2._Bullets.Count; i++)
                     {
                         if (rrp2._Bullets[i].Hitbox.Intersects(player.Hitbox))
                         {
@@ -734,8 +784,8 @@ namespace FirstTryScrolling
 
 
                 }
-              
-                
+
+
                 //rrp2.Update(gameTime, player, GraphicsDevice);
                 //Update123
 
@@ -926,8 +976,7 @@ namespace FirstTryScrolling
                 {
                     player.jumpCount = 0;
                 }
-                mouse.Position.X = ms.X;
-                mouse.Position.Y = ms.Y;
+
                 // lastks = Keyboard.GetState();
 
                 player.Update();
@@ -1322,7 +1371,7 @@ namespace FirstTryScrolling
             Back7.Draw(spriteBatch);
             Back8.Draw(spriteBatch);
 
-            mouse.Draw(spriteBatch);
+           
 
             for (int i = 0; i < Signs.Count; i++)
             {
@@ -1465,25 +1514,41 @@ namespace FirstTryScrolling
             {
                 Blobmsg.Draw(spriteBatch);
             }
-            mouse.Draw(spriteBatch);
+
             for (int i = 0; i < Bullet.Count; i++)
             {
                 Bullet[i].Draw(spriteBatch);
             }
-            spriteBatch.DrawString(font, "X:" + (ms.X + mouseX) + "Y:" + ms.Y, new Vector2(0, 0), Color.Black);
             if (showtbmsg == true)
             {
                 Tbmsg.Draw(spriteBatch);
             }
+            if (showMenu)
+            {
+                MenuPage.Draw(spriteBatch);
+                PlayButton.Draw(spriteBatch);
+                HelpButton.Draw(spriteBatch);
+            }
+            if (showHelp)
+            {
+                Help.Draw(spriteBatch);
+                BackButton.Draw(spriteBatch);
+            }
+
             if (EndGame)
-            {         
-                    TheEnd[EndCount].Draw(spriteBatch);                               
+            {
+                TheEnd[EndCount].Draw(spriteBatch);
             }
             if (GameStopped == true && player.lives == 0)
             {
                 Gameover.Draw(spriteBatch);
             }
+            if (hidemouse == false)
+            {
+                mouse.Draw(spriteBatch);
+            }
 
+            spriteBatch.DrawString(font, "X:" + (ms.X + mouseX) + "Y:" + ms.Y, new Vector2(0, 0), Color.Black);
             base.Draw(gameTime);
             spriteBatch.End();
         }

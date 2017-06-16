@@ -64,3 +64,9 @@ Content\9.xnb
 Content\10.xnb
 Content\11.xnb
 Content\12.xnb
+Content\PlayButton.xnb
+Content\Help.xnb
+Content\Background.xnb
+Content\BackButton.xnb
+Content\Ye.xnb
+Content\HelpPage.xnb
